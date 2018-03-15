@@ -74,51 +74,32 @@
 <div class="container">
 <div id="expes">
 	<div class="row">
-<div class="col-md-4 col-sm-6">
-			<div id="expes_1">
-			<div class="imagen">
-				<%= image_tag "banner_home.png" %>
-			</div>
-			<div class="datos">
-				<h5>Experiencia Extrema</h5>
-				<h3>Sótano de las Golondrina</h3>
-				<h6> <span class="fa fa-map-marker"> </span> Aquismón, San Luis Potosí</h6>
-				<button class="button button_blue2">Reserva Ahora! -></button>
-			</div>
-		</div>
-	</div>
 
+<% @experiences.each do |experience| %>
 <div class="col-md-4 col-sm-6">
-			<div id="expes_1">
-			<div class="imagen">
-				<%= image_tag "banner_home.png" %>
-			</div>
-			<div class="datos">
-				<h5>Experiencia Extrema</h5>
-				<h3>Sótano de las Golondrina</h3>
-				<h6> <span class="fa fa-map-marker"> </span> Aquismón, San Luis Potosí</h6>
-				<button class="button button_blue2">Reserva Ahora! -></button>
-			</div>
-		</div>
-	</div>
+      <div id="expes_1">
+      <div class="imagen">
+        <%= image_tag "banner_home.png" %>
+      </div>
+      <div class="datos">
+        <h5><%= experience.categoria %></h5>
+        <h3><%= experience.nombre %></h3>
+        <h6> <span class="fa fa-map-marker"> </span> <%= experience.lugar %></h6>
+        <%= link_to experience do %>
+        <button class="button button_blue2">Reserva Ahora! -></button>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <% end %>
 
-<div class="col-md-4 col-sm-6">
-			<div id="expes_1">
-			<div class="imagen">
-				<%= image_tag "banner_home.png" %>
-			</div>
-			<div class="datos">
-				<h5>Experiencia Extrema</h5>
-				<h3>Sótano de las Golondrina</h3>
-				<h6> <span class="fa fa-map-marker"> </span> Aquismón, San Luis Potosí</h6>
-				<button class="button button_blue2">Reserva Ahora! -></button>
-			</div>
-		</div>
-	</div>
+
 </div>
 
 <br>
+<%= link_to experiences_path do %>
 <button class="button button_blue button_center">Todas las experiencias</button>
+<% end %>
 <br>
 </div>
 </div>
@@ -151,7 +132,7 @@
 
 
 <div id="contacto">
-	<br>v
+	<br>
 	<h1 class="center white">Somos tu mejor opción para experiencias</h1>
 	<p class="center white">Lorem ipsum dolor amet blue bottle affogato direct trade <br>stumptown pork belly fam, <br>
 scenester keffiyeh church-key.</p> <br><br>

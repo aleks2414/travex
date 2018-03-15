@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  disponible: false
+  nombre: MyString
+  lugar: MyString
+  categoria: MyString
+  dias: MyString
+  foto: MyString
+  slug: MyString
+  user: one
+  incluye: MyText
+  itinerario: MyText
+  que_plan: MyText
+  recomendaciones: MyText
+  address: MyString
+  latitude: 1.5
+  longitude: 1.5
+
+two:
+  disponible: false
+  nombre: MyString
+  lugar: MyString
+  categoria: MyString
+  dias: MyString
+  foto: MyString
+  slug: MyString
+  user: two
+  incluye: MyText
+  itinerario: MyText
+  que_plan: MyText
+  recomendaciones: MyText
+  address: MyString
+  latitude: 1.5
+  longitude: 1.5

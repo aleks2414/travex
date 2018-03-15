@@ -1,0 +1,92 @@
+<%= form_with(model: experience, local: true) do |form| %>
+  <% if experience.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(experience.errors.count, "error") %> prohibited this experience from being saved:</h2>
+
+      <ul>
+      <% experience.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :disponible %>
+    <%= form.check_box :disponible, id: :experience_disponible %>
+  </div>
+
+  <div class="field">
+    <%= form.label :nombre %>
+    <%= form.text_field :nombre, id: :experience_nombre %>
+  </div>
+
+  <div class="field">
+    <%= form.label :lugar %>
+    <%= form.text_field :lugar, id: :experience_lugar %>
+  </div>
+
+  <div class="field">
+    <%= form.label :categoria %>
+    <%= form.text_field :categoria, id: :experience_categoria %>
+  </div>
+
+  <div class="field">
+    <%= form.label :dias %>
+    <%= form.text_field :dias, id: :experience_dias %>
+  </div>
+
+  <div class="field">
+    <%= form.label :foto %>
+    <%= form.text_field :foto, id: :experience_foto %>
+  </div>
+
+  <div class="field">
+    <%= form.label :slug %>
+    <%= form.text_field :slug, id: :experience_slug %>
+  </div>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.text_field :user_id, id: :experience_user_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :incluye %>
+    <%= form.text_area :incluye, id: :experience_incluye %>
+  </div>
+
+  <div class="field">
+    <%= form.label :itinerario %>
+    <%= form.text_area :itinerario, id: :experience_itinerario %>
+  </div>
+
+  <div class="field">
+    <%= form.label :que_plan %>
+    <%= form.text_area :que_plan, id: :experience_que_plan %>
+  </div>
+
+  <div class="field">
+    <%= form.label :recomendaciones %>
+    <%= form.text_area :recomendaciones, id: :experience_recomendaciones %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address %>
+    <%= form.text_field :address, id: :experience_address %>
+  </div>
+
+  <div class="field">
+    <%= form.label :latitude %>
+    <%= form.text_field :latitude, id: :experience_latitude %>
+  </div>
+
+  <div class="field">
+    <%= form.label :longitude %>
+    <%= form.text_field :longitude, id: :experience_longitude %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
