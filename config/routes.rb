@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+
+  get 'viajes_corportativos' => 'pages#corporativos'
+
+  get 'contacts/new'
+
+  get 'contacts/create'
+
   devise_for :users
   root 'welcome#index'
 
