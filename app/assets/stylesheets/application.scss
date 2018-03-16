@@ -372,7 +372,7 @@ input[type="url"],input[type="date"],input[type="name"], input[type="email"], in
 
 .hero {
     background:
-    linear-gradient(to right, rgba(75, 123, 211, 0.5), rgba(22, 215, 177, 0.3)),    url("/assets/cover2.png");
+    linear-gradient(to right, rgba(75, 123, 211, 0.5), rgba(22, 215, 177, 0.3)),    url(asset-path("cover2.png"));
     width: 100%;
     height: 70vh;
     background-size: cover;
@@ -385,7 +385,7 @@ input[type="url"],input[type="date"],input[type="name"], input[type="email"], in
 
 .hero2 {
     background:
-    linear-gradient(to right, rgba(75, 123, 211, 0.5), rgba(22, 215, 177, 0.3)),    url("/assets/cover_3.png");
+    linear-gradient(to right, rgba(75, 123, 211, 0.5), rgba(22, 215, 177, 0.3)),    url(asset-path("cover_3.png"));
     width: 100%;
     height: 50vh;
     background-size: cover;
@@ -398,7 +398,7 @@ input[type="url"],input[type="date"],input[type="name"], input[type="email"], in
 
 .hero3 {
     background:
-    linear-gradient(to right, rgba(75, 123, 211, 0.5), rgba(22, 215, 177, 0.3)),    url("/assets/cover_5.png");
+    linear-gradient(to right, rgba(75, 123, 211, 0.5), rgba(22, 215, 177, 0.3)),    url(asset-path("cover_5.png"));
     width: 100%;
     height: 50vh;
     background-size: cover;
@@ -416,7 +416,7 @@ input[type="url"],input[type="date"],input[type="name"], input[type="email"], in
   background-size: cover;
   background-position: center center;
 	background:
-    linear-gradient(to right, rgba(75, 123, 211, 0.5), rgba(22, 215, 177, 0.3)),    url("/assets/cover_4.png");
+    linear-gradient(to right, rgba(75, 123, 211, 0.5), rgba(22, 215, 177, 0.3)),    url(asset-path("cover_4.png"));
   h1 {
   	font-size: 30px;
   }
