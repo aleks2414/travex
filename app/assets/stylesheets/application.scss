@@ -210,19 +210,19 @@ margin-top: 12px;
 		}
 
 #icon{
-background-image:url(/assets/location.png); 
+background-image:url(image-path("location.png"));
 background-repeat: no-repeat; 
 background-position: 10px 20px;
 }
 
 #icon2{
-background-image:url(/assets/expe.png); 
+background-image:url(image-path("expe.png"));
 background-repeat: no-repeat; 
 background-position: 10px 20px;
 }
 
 #icon3{
-background-image:url(/assets/date.png); 
+background-image:url(image-path("date.png"));
 background-repeat: no-repeat; 
 background-position: 10px 20px;
 }
