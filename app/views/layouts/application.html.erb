@@ -64,42 +64,56 @@
 
 <div id="footer">
 	<div class="row">
-		<div class="col-sm-8">
+		<div class="col-sm-2">
 			<div id="sube">
-			<%= image_tag "logo3.png" %>
+			<%= image_tag "logo3.png" %> <br><br><br><br>
 		</div>
 		</div>
 
-		<div class="col-sm-4">
-			<div id="sube">
-			<ul>
-				<li>
-					<p>Teléfono: 55-2342-2354</p>
-				</li>
-				<li>
-					<%= link_to root_path do %>
-					<%= image_tag "facebook.png" %>
-					<% end %>
-				</li>
 
-				<li>
-					<%= link_to root_path do %>
-					<%= image_tag "insta.png" %>
-					<% end %>
-				</li>
+      <div class="col-md-8 col-xs-6">
+      <h5 class="white">Inter Travex</h5>
+      
+      <%= link_to experiences_path do %>
+      <p>Experiencias</p>
+      <% end %>
+      
+      <%= link_to viajes_corportativos_path do %>
+      <p>Corporativos</p>
+      <% end %>
+      
+      <%= link_to contacts_new_path do %>
+      <p>Contacto</p>
+      <% end %>
+    </div>
 
-				<li>
-					<%= link_to root_path do %>
-					<%= image_tag "twitter.png" %>
-					<% end %>
-				</li>
-			</ul>
-		</div>
-	</div>
+        <div class="col-sm-2 col-xs-6">
+      <div id="sube">
+      <ul>
+        <li>
+          <%= link_to root_path do %>
+          <%= image_tag "facebook.png" %>
+          <% end %>
+        </li>
+
+        <li>
+          <%= link_to root_path do %>
+          <%= image_tag "insta.png" %>
+          <% end %>
+        </li>
+
+        <li>
+          <%= link_to root_path do %>
+          <%= image_tag "twitter.png" %>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+  </div>
 	</div>
 </div>
 <div id="cuadrito">
-	<h2>Contacto: contacto@intertravex.com - Copyright © 2018. All Rights Reserved.</h2>
+	<h2>Contacto: contacto@intertravex.com <br> Copyright © 2018. All Rights Reserved.</h2>
 </div>
 
   </body>
