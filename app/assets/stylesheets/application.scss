@@ -291,17 +291,6 @@ img {
 }
 
 
-#contacto {
-	padding: 50px 0;
-	background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
-	background:
-    linear-gradient(to right, rgba(75, 123, 211, 0.5), rgba(22, 215, 177, 0.3)),    url("cover_4.png");
-  h1 {
-  	font-size: 30px;
-  }
-}
 
 
   #footer {
@@ -421,6 +410,17 @@ input[type="url"],input[type="date"],input[type="name"], input[type="email"], in
 }
 
 
+#contacto {
+	padding: 50px 0;
+	background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+	background:
+    linear-gradient(to right, rgba(75, 123, 211, 0.5), rgba(22, 215, 177, 0.3)),    url("/assets/cover_4.png");
+  h1 {
+  	font-size: 30px;
+  }
+}
 
 .navbar {
 	margin: 0px;
