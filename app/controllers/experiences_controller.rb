@@ -6,6 +6,9 @@ class ExperiencesController < ApplicationController
   # GET /experiences.json
   def index
     @experiences = Experience.all
+
+    @q= Experience.ransack(params[:q])
+    @experiences = @q.result.uniq
   end
 
   # GET /experiences/1

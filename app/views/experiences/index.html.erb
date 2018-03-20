@@ -7,20 +7,23 @@
 
 <div class="container">
 <div id="search">
+  <%= search_form_for @q do |f| %>
   <ul>
     <li>
-      <input id="icon" style="text-indent:30px;" type="text" placeholder="Buscar por lugar..." />
+      <%= f.search_field :nombre_cont, placeholder: "Buscar por Lugar...", id: "icon", sytle: "text-indent:30px;"  %>
     </li>
     <li>
-      <input id="icon2" style="text-indent:30px;" type="text" placeholder="Tipo de experiencia..." />
+      <%= f.search_field :categoria_cont, placeholder: "Tipo de Experiencia...", id: "icon2", sytle: "text-indent:30px;"  %>
     </li>
     <li>
-      <input id="icon3" style="text-indent:30px;" type="text" placeholder="Número de días..." />
+      <%= f.search_field :categoria_cont, id: "icon3", sytle: "text-indent:30px;", placeholder: " Número de días..."  %>
     </li>
     <li>
-      <button class="button2 button_blue">Buscar</button>
+      
+      <%= f.submit "Buscar", class: "button2 button_blue" %>
     </li>
   </ul>
+  <% end %>
 </div>
 </div>
 
