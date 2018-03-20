@@ -40,7 +40,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li class="<%= 'activo' if current_page?(experiences_path) %>"><a href="<%=experiences_path %>">Experiencias</a></li>
         <li class="<%= 'activo' if current_page?(viajes_corporativos_path) %>"><a href="<%=viajes_corporativos_path %>">Viajes Corporativos</a></li>
-        <li class="<%= 'activo' if current_page?(contacts_new_path) %>"><a href="<%=contacts_new_path %>">Contacto</a></li>
+        <li class="<%= 'activo' if current_page?(new_contact_path) %>"><a href="<%=new_contact_path %>">Contacto</a></li>
         
         <% if user_signed_in? %>
         <li class="mini"> <a href="<%= destroy_user_session_path %>" data-method='delete'>
@@ -82,7 +82,7 @@
       <p>Corporativos</p>
       <% end %>
       
-      <%= link_to contacts_new_path do %>
+      <%= link_to new_contact_path do %>
       <p>Contacto</p>
       <% end %>
     </div>

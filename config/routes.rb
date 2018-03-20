@@ -3,9 +3,8 @@ Rails.application.routes.draw do
   resources :experiences
   get 'viajes_corporativos' => 'pages#corporativos'
 
-  get 'contacts/new'
-
-  get 'contacts/create'
+  resources :contacts, only: [:new, :create]
+	mount Ckeditor::Engine => '/ckeditor'
 
   devise_for :users
   root 'welcome#index'

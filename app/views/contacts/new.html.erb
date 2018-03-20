@@ -1,7 +1,7 @@
 <div class="hero2">
 	<h1 class="white center">Queremos escucharte</h1>
 	<div class="col-md-6 col-md-offset-3">
-	<p class="white center hidden-xs">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora illo suscipit consectetur, placeat eaque omnis quisquam vel atque dolorem quaerat repudiandae deleniti sapiente ad error aut libero, tenetur, nobis fugiat!</p>
+		<p class="white center hidden-xs">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora illo suscipit consectetur, placeat eaque omnis quisquam vel atque dolorem quaerat repudiandae deleniti sapiente ad error aut libero, tenetur, nobis fugiat!</p>
 	</div>
 </div>
 
@@ -48,80 +48,90 @@
 
 <div class="container">
 	<div id="nume">
-	<div class="row">
-		<div class="col-md-2 col-xs-4 col-md-offset-3">
-			<div id="nume_1">
-				<%= image_tag "corporativos.png" %>
-				<h3>Corporativos</h3>
-				<p>Los mejores eventos para los mejores clientes</p>
+		<div class="row">
+			<div class="col-md-2 col-xs-4 col-md-offset-3">
+				<div id="nume_1">
+					<%= image_tag "corporativos.png" %>
+					<h3>Corporativos</h3>
+					<p>Los mejores eventos para los mejores clientes</p>
+				</div>
 			</div>
-		</div>
 
-		<div class="col-md-2 col-xs-4">
-			<div id="nume_1">
-				<%= image_tag "experiencias.png" %>
-				<h3>Experiencias</h3>
-				<p>Los mejores planes y el mejor servicio</p>
+			<div class="col-md-2 col-xs-4">
+				<div id="nume_1">
+					<%= image_tag "experiencias.png" %>
+					<h3>Experiencias</h3>
+					<p>Los mejores planes y el mejor servicio</p>
+				</div>
 			</div>
-		</div>
 
-		<div class="col-md-2 col-xs-4">
-			<div id="nume_1">
-				<%= image_tag "turismo.png" %>
-				<h3>Turismo</h3>
-				<p>Armemos los mejores paquetes</p>
+			<div class="col-md-2 col-xs-4">
+				<div id="nume_1">
+					<%= image_tag "turismo.png" %>
+					<h3>Turismo</h3>
+					<p>Armemos los mejores paquetes</p>
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
 </div>
 
 
 <div id="mancha"></div>
 
 <div class="container">
-		<div class="col-md-8 col-md-offset-2" style="padding: 0px;">
-			<div id="contact2" class="up">
-				<h2>Contáctanos</h2>
+	<div class="col-md-8 col-md-offset-2" style="padding: 0px;">
+		<div id="contact2" class="up">
+			<h2>Contáctanos</h2>
 
-				<label for="">Nombre</label>
-				<input type="text">
-
-				<label for="">Email</label>
-				<select>
-  <option value="volvo">Volvo</option>
-  <option value="saab">Saab</option>
-  <option value="opel">Opel</option>
-  <option value="audi">Audi</option>
-</select>
-
-				<label for="">Comentarios</label>
-				<textarea name="" id="" cols="30" rows="10"></textarea>
-				
-				<br><br>
-				<button class="button button_blue button_center">Enviar</button>
-
+			<%= form_for @contact do |f| %>
+			<div class="field">
+				<%= f.label :Nombre %><br>
+				<%= f.text_field :name, required:true %>
 			</div>
+
+			<div class="field">
+				<%= f.label :Email %><br>
+				<%= f.email_field :email, required:true %>
+			</div>
+
+			<%= f.text_field :donde, :value => "#{params[:controller]} - #{request.original_url}", class: "hidden" %>
+
+			<div class="field">
+				<%= f.label :Mensaje %><br>
+				<%= f.text_area :comments, required:true %>
+			</div>
+
+			<div class="hidden">
+				<%= f.label :nickname %><br>
+				<%= f.text_field :nickname, hint: 'Esto se queda en blanco' %>
+			</div>
+
+			<div class="but">
+				<%= f.submit "Enviar", class:"button button_blue button_center"%>
+			</div>
+			<% end %>
+		</div>
 	</div>
 </div>
 
 <div class="container">
-<div id="fotos_cont">
-  <div class="owl-carousel">
-		<div><%= image_tag "banner_home.png" %></div>
-		<div><%= image_tag "banner_home.png" %></div>
-		<div><%= image_tag "banner_home.png" %></div>
-		<div><%= image_tag "banner_home.png" %></div>
-		<div><%= image_tag "banner_home.png" %></div>
+	<div id="fotos_cont">
+		<div class="owl-carousel">
+			<div><%= image_tag "banner_home.png" %></div>
+			<div><%= image_tag "banner_home.png" %></div>
+			<div><%= image_tag "banner_home.png" %></div>
+			<div><%= image_tag "banner_home.png" %></div>
+			<div><%= image_tag "banner_home.png" %></div>
+		</div>
 	</div>
-</div>
 </div>
 
 <script>
-  $(".owl-carousel").owlCarousel(
-    {
-    items:4,
-    margin:10,
-    autoHeight:true,
-    });
+	$(".owl-carousel").owlCarousel(
+	{
+		items:4,
+		margin:10,
+		autoHeight:true,
+	});
 </script>

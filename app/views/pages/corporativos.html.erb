@@ -137,22 +137,33 @@
 			<div id="contact2" class="up">
 				<h2>Contáctanos</h2>
 
-				<label for="">Nombre</label>
-				<input type="text">
+			<%= form_for @contact do |f| %>
+			<div class="field">
+				<%= f.label :Nombre %><br>
+				<%= f.text_field :name, required:true %>
+			</div>
 
-				<label for="">Email</label>
-				<select>
-  <option value="volvo">Volvo</option>
-  <option value="saab">Saab</option>
-  <option value="opel">Opel</option>
-  <option value="audi">Audi</option>
-</select>
+			<div class="field">
+				<%= f.label :Email %><br>
+				<%= f.email_field :email, required:true %>
+			</div>
 
-				<label for="">Comentarios</label>
-				<textarea name="" id="" cols="30" rows="10"></textarea>
-				
-				<br><br>
-				<button class="button button_blue button_center">Enviar</button>
+			<%= f.text_field :donde, :value => "#{params[:controller]} - #{request.original_url}", class: "hidden" %>
+
+			<div class="field">
+				<%= f.label :Mensaje %><br>
+				<%= f.text_area :comments, required:true %>
+			</div>
+
+			<div class="hidden">
+				<%= f.label :nickname %><br>
+				<%= f.text_field :nickname, hint: 'Esto se queda en blanco' %>
+			</div>
+
+			<div class="but">
+				<%= f.submit "Enviar", class:"button button_blue button_center"%>
+			</div>
+			<% end %>
 
 			</div>
 	</div>
