@@ -1,0 +1,65 @@
+<hr>
+<div id="share">
+  <p>Comparte esta experiencia: </p>
+
+  <ul>
+
+    <li>
+    <a class="icon-facebook" rel="nofollow"
+    href="http://www.facebook.com/"
+    onclick="popUp=window.open(
+      'http://www.facebook.com/sharer.php?u=<%="#{request.original_url}"%>',
+      'popupwindow',
+      'scrollbars=yes,width=800,height=400');
+    popUp.focus();
+    return false">
+    <i class="fa fa-facebook fa-lg face"></i>
+  </a>
+</li>
+
+
+  <li>
+  <a class="icon-twitter" rel="nofollow"
+  href="http://twitter.com/"
+  onclick="popUp=window.open(
+    'http://twitter.com/intent/tweet?text=\'<%= @experience.nombre %>\' via Inter Travex - <%="#{request.original_url}"%>',
+    'popupwindow',
+    'scrollbars=yes,width=800,height=400');
+  popUp.focus();
+  return false">
+  <i class="fa fa-twitter fa-lg twitter"></i>
+</a>
+</li>
+
+
+<li>
+<a class="icon-pinterest" rel="nofollow"
+href="http://www.pinterest.com/"
+onclick="popUp=window.open(
+  'http://pinterest.com/pin/create/button/?url=<%="#{request.original_url}"%>&amp;media=<%= @experience.foto %>&amp;description=<%= @experience.nombre %>',
+  'popupwindow',
+  'scrollbars=yes,width=800,height=400');
+popUp.focus();
+return false">
+<i class="fa fa-pinterest fa-lg you"></i>
+</a>
+</li>
+
+
+<li>
+<a class="icon-gplus" rel="nofollow"
+href="http://www.plus.google.com/"
+onclick="popUp=window.open(
+  'https://plus.google.com/share?url=<%="#{request.original_url}"%>',
+  'popupwindow',
+  'scrollbars=yes,width=800,height=400');
+popUp.focus();
+return false">
+<i class="fa fa-google-plus fa-lg you"></i>
+</a> 
+</li>   
+
+  </ul>
+</div>
+
+<hr>

@@ -197,16 +197,19 @@ margin-top: 12px;
 #search {
 	background-color: $light_grey;
 	margin: 40px 0;
-	padding: 30px 70px;
+	padding: 3% 5%;
 	li {
 		display: inline;
 	}
 			input {
-			width: 25%;
+			width: 24%;
 			height: 65px;
 			border: none;
 			padding-left: 10px;
 			font-size: 12px;
+		}
+		button {
+			width: 24%;
 		}
 
 #icon{
@@ -232,7 +235,7 @@ background-position: 10px 20px;
 #expes {
 	background-color: $light_grey;
 	margin: 40px 0;
-	padding: 30px 30px;
+	padding: 4% 4%;
 }
 
 #expes_1 {
@@ -381,7 +384,7 @@ input[type="url"],input[type="date"],input[type="name"], input[type="email"], in
     background-size: cover;
 		padding: 50px 40px;
   h1 {
-  	margin-top: 12%;
+  	margin-top: 15%;
   	font-size: 35px;
   }
 }
@@ -394,7 +397,7 @@ input[type="url"],input[type="date"],input[type="name"], input[type="email"], in
     background-size: cover;
 		padding: 50px 40px;
   h1 {
-  	margin-top: 12%;
+  	margin-top: 8%;
   	font-size: 35px;
   }
 }
@@ -407,7 +410,7 @@ input[type="url"],input[type="date"],input[type="name"], input[type="email"], in
     background-size: cover;
 		padding: 50px 40px;
   h1 {
-  	margin-top: 12%;
+  	margin-top: 8%;
   	font-size: 35px;
   }
 }
@@ -494,4 +497,90 @@ input[type="url"],input[type="date"],input[type="name"], input[type="email"], in
 	h2 {
 		margin-top: 20px;
 	}
+}
+
+#show_ex {
+  margin-top: 50px;
+}
+
+#ex_iz {
+  background-color: #f9f9f9;
+  padding: 5% 3%;
+
+  h1 {
+    font-weight: 900;
+    font-size: 2em;
+  }
+  h3 {
+    font-weight: 300;
+    margin-top: 24px;
+  }
+
+  p {
+    text-align: justify;
+  }
+
+  h4 {
+    padding: 10px;
+    margin-top: 20px;
+    border: solid 1px $navy;
+    display: inline-block;
+  }
+
+}
+
+#share {
+  p {
+    margin-bottom: 16px;
+  }
+  li {
+    display: inline;
+    margin-right: 30px;
+  }
+}
+
+#tabs {
+  border-right: solid 1px $navy;
+  .tablinks {
+    width: 28%;
+    margin: 0 1.5%;
+    border: none;
+    font-weight: 500;
+    margin-bottom: 50px;
+    padding: 10px 5px;
+    &:hover {
+      background-color: $light_grey;
+    }
+  }
+    .active {
+      border-bottom: solid 1px $navy;
+    }
+
+    p {
+      margin-bottom: 35px;
+      padding-right: 3%;
+    }
+}
+
+
+/*Media*/
+
+@media (max-width: 800px)
+{
+
+#banner {
+background-attachment: unset;
+}
+}
+
+
+
+@media (max-width: 550px)
+{
+#search {
+	input, button {
+		width: 100%;
+		margin-bottom: 5px;
+	}
+}
 }

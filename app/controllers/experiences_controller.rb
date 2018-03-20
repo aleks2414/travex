@@ -11,6 +11,7 @@ class ExperiencesController < ApplicationController
   # GET /experiences/1
   # GET /experiences/1.json
   def show
+    @experiences = Experience.all
   end
 
   # GET /experiences/new
@@ -66,11 +67,11 @@ class ExperiencesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_experience
-      @experience = Experience.find(params[:id])
+      @experience = Experience.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def experience_params
-      params.require(:experience).permit(:disponible, :nombre, :lugar, :categoria, :dias, :foto, :slug, :user_id, :incluye, :itinerario, :que_plan, :recomendaciones, :address, :latitude, :longitude)
+      params.require(:experience).permit(:disponible, :nombre, :lugar, :categoria, :dias, :foto, :slug, :user_id, :incluye, :itinerario, :que_plan, :recomendaciones, :address, :latitude, :longitude, :descripcion)
     end
 end

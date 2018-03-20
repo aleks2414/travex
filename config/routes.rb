@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   resources :experiences
-  get 'viajes_corportativos' => 'pages#corporativos'
+  get 'viajes_corporativos' => 'pages#corporativos'
 
   get 'contacts/new'
 

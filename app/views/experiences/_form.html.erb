@@ -37,19 +37,15 @@
   </div>
 
   <div class="field">
+    <%= form.label :descripcion %>
+    <%= form.text_area :descripcion, id: :experience_descripcion %>
+  </div>
+
+  <div class="field">
     <%= form.label :foto %>
     <%= form.text_field :foto, id: :experience_foto %>
   </div>
 
-  <div class="field">
-    <%= form.label :slug %>
-    <%= form.text_field :slug, id: :experience_slug %>
-  </div>
-
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id, id: :experience_user_id %>
-  </div>
 
   <div class="field">
     <%= form.label :incluye %>
@@ -74,16 +70,6 @@
   <div class="field">
     <%= form.label :address %>
     <%= form.text_field :address, id: :experience_address %>
-  </div>
-
-  <div class="field">
-    <%= form.label :latitude %>
-    <%= form.text_field :latitude, id: :experience_latitude %>
-  </div>
-
-  <div class="field">
-    <%= form.label :longitude %>
-    <%= form.text_field :longitude, id: :experience_longitude %>
   </div>
 
   <div class="actions">

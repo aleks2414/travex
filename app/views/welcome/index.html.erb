@@ -6,8 +6,10 @@
 			<div id="banner_1">
 				<h1 class="titulo white">Las mejores experiencias en México</h1>
 				<p class="white hidden-xs">Lorem ipsum dolor amet blue bottle affogato direct trade stumptown pork belly fam, scenester keffiyeh church-key. Pork belly chartreuse flexitarian polaroid tilde, vegan irony jianbing taiyaki woke cray cliche copper.</p>
-
+				
+				<%= link_to contacts_new_path do %>
 				<button class="button button_blue2">Más información</button>
+				<% end %>
 			</div>
 		</div>
 	</div>
@@ -114,7 +116,9 @@
 				<%= image_tag "banner_home.png" %>
 				<h1 class="titulo">Experiencias para Corporativos</h1>
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos asperiores fugit, ratione, vel modi, harum, nesciunt nobis est atque illo eum omnis minus eligendi distinctio accusantium numquam iusto esse perferendis.</p>
+				<%= link_to viajes_corporativos_path do %>
 				<button class="button button_blue">Más información</button>
+				<% end %>
 			</div>
 		</div>
 
@@ -123,7 +127,10 @@
 				<%= image_tag "banner_home.png" %>
 				<h1 class="titulo">Turismo Receptivo</h1>
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae eveniet nihil neque vero repudiandae, aspernatur ratione ab perferendis adipisci iste excepturi quibusdam libero. Laboriosam eius aliquid in, nesciunt, earum cum.</p>
+
+				<%= link_to contacts_new_path do %>
 				<button class="button button_blue">Más información</button>
+				<% end %>
 			</div>
 		</div>
 	</div>
@@ -136,5 +143,7 @@
 	<h1 class="center white">Somos tu mejor opción para experiencias</h1>
 	<p class="center white">Lorem ipsum dolor amet blue bottle affogato direct trade <br>stumptown pork belly fam, <br>
 scenester keffiyeh church-key.</p> <br><br>
+<%= link_to contacts_new_path do %>
 <button class="button button_blue button_center">Contáctanos</button>
+<% end %>
 </div>
