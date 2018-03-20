@@ -25,34 +25,38 @@
   <h2>Información General</h2>
   <div class="field">
     <%= form.label :nombre_de_la_experiencia %>
-    <%= form.text_field :nombre, id: :experience_nombre %>
+    <%= form.text_field :nombre, id: :experience_nombrex, required: true %>
   </div>
 
   <div class="field">
     <%= form.label :lugar_de_la_experiencia %>
-    <%= form.text_field :lugar, id: :experience_lugar %>
+    <%= form.text_field :lugar, id: :experience_lugar, required: true %>
   </div>
 
   <div class="field">
     <%= form.label :categoria %>
-    <%= form.text_field :categoria, id: :experience_categoria %>
+    <%= form.text_field :categoria, id: :experience_categoria, required: true %>
   </div>
 
   <div class="field">
     <%= form.label :dias %>
-    <%= form.text_field :dias, id: :experience_dias %>
+    <%= form.text_field :dias, id: :experience_dias, required: true %>
   </div>
 
   <div class="field">
     <%= form.label :descripcion %>
-    <%= form.cktext_area :descripcion, id: :experience_descripcion %>
+    <%= form.cktext_area :descripcion, id: :experience_descripcion, required: true %>
   </div>
 </div>
 
 <div id="contact2">
+
   <div class="field">
-    <%= form.label :foto_principal %>
-    <%= form.file_field :foto, id: :experience_foto %>
+    <%= form.label :foto_principal %><br>
+    <%= @experience.foto if @experience.foto %>
+    <br><br>
+    <%= form.file_field :foto, required: true %>
+    <%= form.hidden_field :foto_cache %>
   </div>
 </div>
 
@@ -95,6 +99,6 @@
 </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: "button button_blue button_center" %>
   </div>
 <% end %>

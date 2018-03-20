@@ -15,6 +15,9 @@
 
   <h3>Itinerario</h3>
   <p><%= @experience.itinerario.html_safe %></p>
+
+  <h3>Ubicación:</h3>
+  <div id="map2"></div>
 </div>
 
 <div id="Paris" class="tabcontent">
@@ -59,3 +62,26 @@ function openCity(evt, cityName) {
 // Get the element with id="defaultOpen" and click on it
 document.getElementById("defaultOpen").click();
 </script>
+
+<script>
+
+  function initMap() {
+    var myLatLng = {lat: <%= @experience.latitude %>, lng: <%= @experience.longitude %>};
+
+    var map = new google.maps.Map(document.getElementById('map2'), {
+      zoom: 12,
+      center: myLatLng,
+      scrollwheel: false
+    });
+
+
+    var marker = new google.maps.Marker({
+      position: myLatLng,
+      map: map,
+      title: '<%= @experience.nombre %>'
+    });
+  }
+
+</script>
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB6K3XNvvLlBjourkCDTo3CMOUygthuYKo&signed_in=true&callback=initMap"></script>

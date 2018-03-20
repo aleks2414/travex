@@ -5,4 +5,23 @@ class Experience < ApplicationRecord
   accepts_nested_attributes_for :images
   extend FriendlyId
   friendly_id :nombre, use: :slugged
+
+geocoded_by :lugar
+after_validation :geocode, if: ->(obj){ obj.lugar.present? and obj.lugar_changed? }
+after_validation :lat_changed?
+
+private
+
+# This is used to make sure that our lugar is actually parsed properly and we
+# get a valuable lat/long
+def lat_changed?
+    if (self.lugar_changed?)
+        if !(self.latitude_changed?)
+            self.errors.add(:lugar, ": La ubicación no es válida")
+            return false
+        end
+    end
+    return true
+end
+
 end
