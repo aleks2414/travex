@@ -1,4 +1,5 @@
-<div class="hero4" style="background-image: url(<%= @experience.foto %>);">
+<div class="hero4" style="background: linear-gradient(to right, rgba(75, 123, 211, 0.5), rgba(22, 215, 177, 0.3)),    url(<%=@experience.foto.heavy %>);">
+
   <h1 class="white center"><%= @experience.nombre %></h1>
 </div>
 
@@ -22,7 +23,7 @@
       <div id="ex_der">
         <div class="owl-carousel">
             <% @images.each do |image| %>
-            <div><%= image_tag image.image2.url %></div>
+            <div><%= image_tag image.image2.max.url %></div>
             <% end %>
       </div>
       </div>
@@ -124,7 +125,7 @@
 <script>
   $(".owl-carousel").owlCarousel(
   {
-    items:4,
+    items:1,
     autoHeight:true,
   });
 </script>

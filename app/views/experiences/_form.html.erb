@@ -55,7 +55,7 @@
     <%= form.label :foto_principal %><br>
     <%= @experience.foto if @experience.foto %>
     <br><br>
-    <%= form.file_field :foto, required: true %>
+    <%= form.file_field :foto %>
     <%= form.hidden_field :foto_cache %>
   </div>
 </div>
