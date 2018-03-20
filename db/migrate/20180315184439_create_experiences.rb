@@ -1,7 +1,7 @@
 class CreateExperiences < ActiveRecord::Migration[5.1]
   def change
     create_table :experiences do |t|
-      t.boolean :disponible
+      t.boolean :disponible, default: true
       t.string :nombre
       t.string :lugar
       t.string :categoria

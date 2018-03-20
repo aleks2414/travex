@@ -21,11 +21,9 @@
     <div class="col-md-4">
       <div id="ex_der">
         <div class="owl-carousel">
-        <div><%= image_tag "rectangle_15.png" %></div>
-        <div><%= image_tag "rectangle_15.png" %></div>
-        <div><%= image_tag "rectangle_15.png" %></div>
-        <div><%= image_tag "rectangle_15.png" %></div>
-        <div><%= image_tag "rectangle_15.png" %></div>
+            <% @images.each do |image| %>
+            <div><%= image_tag image.image2.url %></div>
+            <% end %>
       </div>
       </div>
     </div>

@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180320011755) do
+ActiveRecord::Schema.define(version: 20180320171441) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "experiences", force: :cascade do |t|
-    t.boolean "disponible"
+    t.boolean "disponible", default: true
     t.string "nombre"
     t.string "lugar"
     t.string "categoria"
@@ -50,6 +50,14 @@ ActiveRecord::Schema.define(version: 20180320011755) do
     t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
   end
 
+  create_table "images", force: :cascade do |t|
+    t.string "image2"
+    t.bigint "experience_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["experience_id"], name: "index_images_on_experience_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -68,4 +76,5 @@ ActiveRecord::Schema.define(version: 20180320011755) do
   end
 
   add_foreign_key "experiences", "users"
+  add_foreign_key "images", "experiences"
 end

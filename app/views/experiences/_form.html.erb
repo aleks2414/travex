@@ -57,6 +57,22 @@
 </div>
 
 <div id="contact2">
+  <h2>Imágenes de Carrusel</h2>
+  <div class="row">
+  <div class="col-md-4">
+    <div class="form-group">              
+      <span class="btn btn-default">
+        <i class="fa fa-cloud-upload fa-lg"></i> Subir fotos 
+        <%= file_field_tag "images_p[]", type: :file, multiple: true %>
+      </span>
+    </div>    
+  </div>
+</div>
+
+<div id="photos_p"><%= render 'images/list' %></div>
+</div>
+
+<div id="contact2">
   <div class="field">
     <%= form.label :qué_incluye? %>
     <%= form.cktext_area :incluye, id: :experience_incluye %>
