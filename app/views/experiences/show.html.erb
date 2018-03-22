@@ -40,7 +40,21 @@
   </div>
   <div class="col-md-4">
     <div id="paquetes">
-      
+      <h2 class="center">Fechas Disponibles</h2>
+      <h2 class="center"><%= @experience.nombre %></h2>
+      <hr>
+
+<div id="bloques">
+      <% @experience.blocks.each_with_index do |block, i| %>
+      <div id="cerca">
+        <h5><%=i+1%>) Salida: <%=block.lugar_salida%> - Hora: <%= block.hora_salida.strftime(" %X") %></h5>
+        <h5>Fechas: <%=block.fecha_salida.strftime(" %b-%d-%Y")%> - <%= block.fecha_regreso.strftime(" %b-%d-%Y") %></h5>
+        <h5>Precio: $<%=block.precio%></h5>
+        <h5>Disponibilidad: <%= block.capacidad %> personas</h5>
+        <button class="button button_blue">Disponible</button>
+      </div>
+    <% end %>
+</div>
     </div>
   </div>
   </div>

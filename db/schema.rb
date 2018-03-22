@@ -10,10 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180320171441) do
+ActiveRecord::Schema.define(version: 20180322171710) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "blocks", force: :cascade do |t|
+    t.bigint "experience_id"
+    t.date "fecha_salida"
+    t.string "lugar_salida"
+    t.time "hora_salida"
+    t.date "fecha_regreso"
+    t.float "precio", default: 0.0
+    t.integer "capacidad", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["experience_id"], name: "index_blocks_on_experience_id"
+  end
 
   create_table "experiences", force: :cascade do |t|
     t.boolean "disponible", default: true
@@ -75,6 +88,7 @@ ActiveRecord::Schema.define(version: 20180320171441) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "blocks", "experiences"
   add_foreign_key "experiences", "users"
   add_foreign_key "images", "experiences"
 end

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :blocks
   resources :images
   resources :experiences
   get 'viajes_corporativos' => 'pages#corporativos'

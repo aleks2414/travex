@@ -98,6 +98,21 @@
   </div>
 </div>
 
+<hr>
+
+<div id="contact2">
+  <h2>Paquetes</h2>
+  <%= form.fields_for :blocks do |block| %>
+
+  <%= render "block_fields", f: block %>
+  <% end %>
+      <br>
+      <div class="links">
+        <%= link_to_add_association 'Añadir Paquete', form, :blocks, class: "button button_blue" %>
+      </div>
+      <br>
+</div>
+
   <div class="actions">
     <%= form.submit class: "button button_blue button_center" %>
   </div>

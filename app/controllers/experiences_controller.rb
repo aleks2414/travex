@@ -9,6 +9,18 @@ class ExperiencesController < ApplicationController
 
     @q= Experience.where(:disponible => true).ransack(params[:q])
     @experiences = @q.result.uniq
+
+prepare_meta_tags(title: "",
+  description: "", 
+  keywords: %w[Innovación en México, diferenciación],
+      og: {
+        site_name: "Inter Travex",
+        title: "",
+        description: "",
+        type: 'website'
+      }
+)
+
   end
 
   # GET /experiences/1
@@ -17,6 +29,17 @@ class ExperiencesController < ApplicationController
     @experiences = Experience.where(:disponible => true).limit(3)
     @contact = Contact.new
     @images = @experience.images.all
+
+prepare_meta_tags(title: "",
+  description: "", 
+  keywords: %w[Innovación en México, diferenciación],
+      og: {
+        site_name: "Inter Travex",
+        title: "",
+        description: "",
+        type: 'website'
+      }
+)
   end
 
   # GET /experiences/new
@@ -86,6 +109,6 @@ class ExperiencesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def experience_params
-      params.require(:experience).permit(:disponible, :nombre, :lugar, :categoria, :dias, :foto, :slug, :user_id, :incluye, :itinerario, :que_plan, :recomendaciones, :address, :latitude, :longitude, :descripcion, images_attributes: [:id, :experience_id, :image2])
+      params.require(:experience).permit(:disponible, :nombre, :lugar, :categoria, :dias, :foto, :slug, :user_id, :incluye, :itinerario, :que_plan, :recomendaciones, :address, :latitude, :longitude, :descripcion, images_attributes: [:id, :experience_id, :image2], blocks_attributes: [:id, :experience_id, :fecha_salida, :lugar_salida, :hora_salida, :fecha_regreso, :precio, :capacidad])
     end
 end

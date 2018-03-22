@@ -3,6 +3,9 @@ class Experience < ApplicationRecord
   belongs_to :user
   has_many :images, dependent: :destroy
   accepts_nested_attributes_for :images
+
+  has_many :blocks, dependent: :destroy
+  accepts_nested_attributes_for :blocks
   extend FriendlyId
   friendly_id :nombre, use: :slugged
 

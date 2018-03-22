@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  experience: one
+  fecha_salida: 2018-03-22
+  lugar_salida: MyString
+  hora_salida: 2018-03-22 11:17:10
+  fehca_regreso: 2018-03-22
+  precio_float: MyString
+  capacidad: 1
+
+two:
+  experience: two
+  fecha_salida: 2018-03-22
+  lugar_salida: MyString
+  hora_salida: 2018-03-22 11:17:10
+  fehca_regreso: 2018-03-22
+  precio_float: MyString
+  capacidad: 1

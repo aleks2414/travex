@@ -43,6 +43,7 @@ gem 'rails_12factor', group: :production
 gem 'owlcarousel-rails'
 gem 'mail_form'
 gem 'geocoder'
+gem "cocoon"
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
