@@ -44,6 +44,8 @@ gem 'owlcarousel-rails'
 gem 'mail_form'
 gem 'geocoder'
 gem "cocoon"
+gem 'stripe'
+gem 'dotenv-rails', :groups => [:development, :test]
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password

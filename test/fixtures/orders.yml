@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  stripe_token: MyString
+  block: one
+
+two:
+  stripe_token: MyString
+  block: two

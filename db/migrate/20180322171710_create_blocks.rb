@@ -6,7 +6,7 @@ class CreateBlocks < ActiveRecord::Migration[5.1]
       t.string :lugar_salida
       t.time :hora_salida
       t.date :fecha_regreso
-      t.float :precio, default: 0.0
+      t.decimal :precio, default: 0.00
       t.integer :capacidad, default: 0
 
       t.timestamps

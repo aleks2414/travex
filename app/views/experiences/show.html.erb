@@ -51,7 +51,10 @@
         <h5>Fechas: <%=block.fecha_salida.strftime(" %b-%d-%Y")%> - <%= block.fecha_regreso.strftime(" %b-%d-%Y") %></h5>
         <h5>Precio: $<%=block.precio%></h5>
         <h5>Disponibilidad: <%= block.capacidad %> personas</h5>
-        <button class="button button_blue">Disponible</button>
+        
+        <%= link_to new_block_order_path(block), data: { no_turbolink: true } do %>
+            <button class="button button_blue">Reversar</button>
+        <% end %>
       </div>
     <% end %>
 </div>

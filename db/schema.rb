@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180322171710) do
+ActiveRecord::Schema.define(version: 20180406153543) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20180322171710) do
     t.string "lugar_salida"
     t.time "hora_salida"
     t.date "fecha_regreso"
-    t.float "precio", default: 0.0
+    t.decimal "precio", default: "0.0"
     t.integer "capacidad", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -71,6 +71,15 @@ ActiveRecord::Schema.define(version: 20180322171710) do
     t.index ["experience_id"], name: "index_images_on_experience_id"
   end
 
+  create_table "orders", force: :cascade do |t|
+    t.string "stripe_token"
+    t.integer "many", default: 1
+    t.bigint "block_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["block_id"], name: "index_orders_on_block_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -84,6 +93,9 @@ ActiveRecord::Schema.define(version: 20180322171710) do
     t.inet "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
+    t.boolean "admin", default: false
+    t.string "stripe_card_token"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -91,4 +103,5 @@ ActiveRecord::Schema.define(version: 20180322171710) do
   add_foreign_key "blocks", "experiences"
   add_foreign_key "experiences", "users"
   add_foreign_key "images", "experiences"
+  add_foreign_key "orders", "blocks"
 end

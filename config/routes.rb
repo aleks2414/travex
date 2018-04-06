@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
 
-  resources :blocks
+  get 'orders/new'
+
+  resources :blocks do 
+  	resources :orders
+  end
+  
   resources :images
   resources :experiences
   get 'viajes_corporativos' => 'pages#corporativos'
