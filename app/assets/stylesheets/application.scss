@@ -277,12 +277,12 @@ margin-bottom: 10px;
 
 .left {text-align: left;
 img {
-	width: 100%;
+	max-width: 370px;
 	}}
 
 .right {text-align: right;
 img {
-	width: 100%;
+	max-width: 370px;
 	}}
 
 .white {color: white;}
@@ -465,12 +465,17 @@ input[type="url"],input[type="date"],input[type="name"], input[type="email"], in
 	margin-top: 25px;
 	margin-bottom: 80px;
 	img {
-		width: 100%;
+		max-width: 370px;
+    margin: 0 auto;
 	}
 } 
 
 #contact_der {
 	padding: 50px 20px 0 0;
+}
+
+#contact_izq {
+  text-align: center;
 }
 
 #cuadrito {
