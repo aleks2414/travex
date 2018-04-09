@@ -1,16 +1,21 @@
 <%= form_for [@block, @order], id: "new_order" do |f| %>
   <span class="payment-errors"></span>
 
+  <div class="field">
+    <%= f.label :Cuántos_adultos %>
+    <%= f.text_field :many, required: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Cuántos_niños %>
+    <%= f.text_field :many_n, required: true %>
+  </div>
+
   <div class="form-row">
     <label>
       <span>Card Number</span>
       <input type="text" size="20" data-stripe="number"/>
     </label>
-  </div>
-
-  <div class="field">
-    <%= f.label :Cuántas_personas %>
-    <%= f.text_field :many, required: true %>
   </div>
 
   <div class="form-row">

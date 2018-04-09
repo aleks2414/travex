@@ -1,6 +1,6 @@
 class ExperiencesController < ApplicationController
   before_action :set_experience, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:show, :index]
+  before_action :filter_admin!, except: [:show, :index]
 
   # GET /experiences
   # GET /experiences.json
@@ -10,16 +10,16 @@ class ExperiencesController < ApplicationController
     @q= Experience.where(:disponible => true).ransack(params[:q])
     @experiences = @q.result.uniq
 
-prepare_meta_tags(title: "",
-  description: "", 
-  keywords: %w[Innovación en México, diferenciación],
+    prepare_meta_tags(title: "",
+      description: "", 
+      keywords: %w[Innovación en México, diferenciación],
       og: {
         site_name: "Inter Travex",
         title: "",
         description: "",
         type: 'website'
       }
-)
+      )
 
   end
 
@@ -30,16 +30,16 @@ prepare_meta_tags(title: "",
     @contact = Contact.new
     @images = @experience.images.all
 
-prepare_meta_tags(title: "",
-  description: "", 
-  keywords: %w[Innovación en México, diferenciación],
+    prepare_meta_tags(title: "",
+      description: "", 
+      keywords: %w[Innovación en México, diferenciación],
       og: {
         site_name: "Inter Travex",
         title: "",
         description: "",
         type: 'website'
       }
-)
+      )
   end
 
   # GET /experiences/new
@@ -77,7 +77,7 @@ prepare_meta_tags(title: "",
   # PATCH/PUT /experiences/1
   # PATCH/PUT /experiences/1.json
   def update
-      if @experience.update(experience_params)
+    if @experience.update(experience_params)
 
       if params[:images_p] 
         params[:images_p].each do |image|
@@ -107,8 +107,13 @@ prepare_meta_tags(title: "",
       @experience = Experience.friendly.find(params[:id])
     end
 
+    def filter_admin!
+     authenticate_user!
+     redirect_to root_path, alert: "No tienes acceso" unless current_user.admin?
+   end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def experience_params
-      params.require(:experience).permit(:disponible, :nombre, :lugar, :categoria, :dias, :foto, :slug, :user_id, :incluye, :itinerario, :que_plan, :recomendaciones, :address, :latitude, :longitude, :descripcion, images_attributes: [:id, :experience_id, :image2], blocks_attributes: [:id, :experience_id, :fecha_salida, :lugar_salida, :hora_salida, :fecha_regreso, :precio, :capacidad])
+      params.require(:experience).permit(:disponible, :nombre, :lugar, :categoria, :dias, :foto, :slug, :user_id, :incluye, :itinerario, :que_plan, :recomendaciones, :address, :latitude, :longitude, :descripcion, images_attributes: [:id, :experience_id, :image2], blocks_attributes: [:id, :experience_id, :fecha_salida, :lugar_salida, :hora_salida, :fecha_regreso, :precio_adulto, :precio_nino, :capacidad])
     end
-end
+  end

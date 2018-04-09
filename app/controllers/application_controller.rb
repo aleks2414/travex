@@ -5,6 +5,8 @@ before_action :prepare_meta_tags, if: "request.get?"
 
 before_action :configure_permitted_parameters, if: :devise_controller?
 
+
+
   protected
 
   def configure_permitted_parameters

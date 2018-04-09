@@ -21,7 +21,8 @@ ActiveRecord::Schema.define(version: 20180406153543) do
     t.string "lugar_salida"
     t.time "hora_salida"
     t.date "fecha_regreso"
-    t.decimal "precio", default: "0.0"
+    t.decimal "precio_adulto", default: "0.0"
+    t.decimal "precio_nino", default: "0.0"
     t.integer "capacidad", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -74,10 +75,13 @@ ActiveRecord::Schema.define(version: 20180406153543) do
   create_table "orders", force: :cascade do |t|
     t.string "stripe_token"
     t.integer "many", default: 1
+    t.integer "many_n", default: 0
     t.bigint "block_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["block_id"], name: "index_orders_on_block_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -104,4 +108,5 @@ ActiveRecord::Schema.define(version: 20180406153543) do
   add_foreign_key "experiences", "users"
   add_foreign_key "images", "experiences"
   add_foreign_key "orders", "blocks"
+  add_foreign_key "orders", "users"
 end

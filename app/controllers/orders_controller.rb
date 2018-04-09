@@ -9,7 +9,7 @@ class OrdersController < ApplicationController
 
 	def show
 		@order = Order.find(params[:id])
-		@price = @order.block.precio.to_f / 100
+		@price = @order.block.precio_adulto.to_f / 100
 	end
 
 
@@ -17,22 +17,24 @@ def create
 
   @block = Block.find(params[:block_id])
   @order = @block.orders.new(order_params)
+  @order.user_id = current_user.id
 
   if @order.save
 
     Stripe.api_key = Rails.application.secrets.stripe_secret_key # set the secret key to identify with stripe.
 
+    
     Stripe::Charge.create(
       :description => @block.experience.nombre,
-      :amount => (@block.precio.round*100)*@order.many,
+      :amount => ((@block.precio_adulto.round*100)*@order.many)+((@block.precio_nino.round*100)*@order.many_n),
       :currency => "mxn",
       :card => @order.stripe_token # obtained with Stripe.js
     )
-    flash[:success] = "Thanks for purchasing #{@block.experience.nombre}"
+    flash[:success] = "Gracias por comprar #{@block.experience.nombre}"
     redirect_to block_order_path(@block, @order)
   else
 
-    flash[:error] = "Oops, something went wrong"
+    flash[:error] = "Oops, algo salió mal"
     render :new
   end
 rescue Stripe::CardError => e
@@ -45,7 +47,7 @@ end
 
 	private
 	def order_params
-		params.require(:order).permit(:stripe_token, :block_id, :many)
+		params.require(:order).permit(:stripe_token, :block_id, :many, :many_n)
 	end
 end
 

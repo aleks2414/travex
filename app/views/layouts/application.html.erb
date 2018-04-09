@@ -1,139 +1,140 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <%= csrf_meta_tags %>
-    <%= display_meta_tags %>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-      <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+<head>
+  <%= csrf_meta_tags %>
+  <%= display_meta_tags %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
   <script src="https://use.fontawesome.com/7dee056668.js"></script>
 
 
-    <% if params[:controller] == "orders" and params[:action] == "new" or params[:action] == "create" %>
+  <% if params[:controller] == "orders" and params[:action] == "new" or params[:action] == "create" %>
 
-      <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
-      <script type="text/javascript">
+  <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+  <script type="text/javascript">
         // This identifies your website in the createToken call below
         Stripe.setPublishableKey('<%= Rails.application.secrets.stripe_public_key %>');
         // ...
       </script>
-    <% end %>
-  </head>
-
-  <body>
-
-
-
-  <% flash.each do |key, value| %>
-    <div class="<%= key %>">
-      <p><%= value %></p>
-    </div>
-  <% end %>
-
-<div id="navin">
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <%= link_to root_path do %>
-        <%= image_tag "logo2.png" %>
       <% end %>
-    </div>
+    </head>
+
+    <body>
 
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-right">
-        <li class="<%= 'activo' if current_page?(experiences_path) %>"><a href="<%=experiences_path %>">Experiencias</a></li>
-        <li class="<%= 'activo' if current_page?(viajes_corporativos_path) %>"><a href="<%=viajes_corporativos_path %>">Viajes Corporativos</a></li>
-        <li class="<%= 'activo' if current_page?(new_contact_path) %>"><a href="<%=new_contact_path %>">Contacto</a></li>
-        
-        <% if user_signed_in? %>
-        <li>
-          <%= link_to 'Nueva Experiencia', new_experience_path %>
-        </li>
-        <li class="mini"> <a href="<%= destroy_user_session_path %>" data-method='delete'>
-        Cerrar Sesión
-      </a></li>
-        <% else %>
-        <li class="mini"><a href="<%= new_user_session_path %>"> Iniciar Sesión </a></li>
+
+      <% flash.each do |key, value| %>
+      <div class="<%= key %>">
+        <p><%= value %></p>
+      </div>
+      <% end %>
+
+      <div id="navin">
+        <nav class="navbar navbar-default">
+          <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <%= link_to root_path do %>
+              <%= image_tag "logo2.png" %>
+              <% end %>
+            </div>
+
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav navbar-right">
+                <li class="<%= 'activo' if current_page?(experiences_path) %>"><a href="<%=experiences_path %>">Experiencias</a></li>
+                <li class="<%= 'activo' if current_page?(viajes_corporativos_path) %>"><a href="<%=viajes_corporativos_path %>">Viajes Corporativos</a></li>
+                <li class="<%= 'activo' if current_page?(new_contact_path) %>"><a href="<%=new_contact_path %>">Contacto</a></li>
+                <% if user_signed_in? && current_user.admin? %>
+                <li>
+                  <%= link_to 'Nueva Experiencia', new_experience_path %>
+                </li>
+                <% end %>
+                <% if user_signed_in? %>
+                <li class="mini"> <a href="<%= destroy_user_session_path %>" data-method='delete'>
+                  Cerrar Sesión
+                </a></li>
+                <% else %>
+                <li class="mini"><a href="<%= new_user_session_path %>"> Iniciar Sesión </a></li>
+                <% end %>
+
+              </ul>
+            </div><!-- /.navbar-collapse -->
+          </div><!-- /.container-fluid -->
+        </nav>
+      </div>
+
+
+      <div id="content">
+        <%= yield %>
+      </div>
+
+
+      <div id="footer">
+       <div class="row">
+        <div class="col-sm-2">
+         <div id="sube">
+           <%= image_tag "logo3.png" %> <br><br><br><br>
+         </div>
+       </div>
+
+
+       <div class="col-md-8 col-xs-6">
+        <h5 class="white">Inter Travex</h5>
+
+        <%= link_to experiences_path do %>
+        <p>Experiencias</p>
         <% end %>
 
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
-</div>
+        <%= link_to viajes_corporativos_path do %>
+        <p>Corporativos</p>
+        <% end %>
 
+        <%= link_to new_contact_path do %>
+        <p>Contacto</p>
+        <% end %>
+      </div>
 
-		<div id="content">
-    <%= yield %>
-    </div>
-    
+      <div class="col-sm-2 col-xs-6">
+        <div id="sube">
+          <ul>
+            <li>
+              <%= link_to root_path do %>
+              <%= image_tag "facebook.png" %>
+              <% end %>
+            </li>
 
-<div id="footer">
-	<div class="row">
-		<div class="col-sm-2">
-			<div id="sube">
-			<%= image_tag "logo3.png" %> <br><br><br><br>
-		</div>
-		</div>
+            <li>
+              <%= link_to root_path do %>
+              <%= image_tag "insta.png" %>
+              <% end %>
+            </li>
 
-
-      <div class="col-md-8 col-xs-6">
-      <h5 class="white">Inter Travex</h5>
-      
-      <%= link_to experiences_path do %>
-      <p>Experiencias</p>
-      <% end %>
-      
-      <%= link_to viajes_corporativos_path do %>
-      <p>Corporativos</p>
-      <% end %>
-      
-      <%= link_to new_contact_path do %>
-      <p>Contacto</p>
-      <% end %>
-    </div>
-
-        <div class="col-sm-2 col-xs-6">
-      <div id="sube">
-      <ul>
-        <li>
-          <%= link_to root_path do %>
-          <%= image_tag "facebook.png" %>
-          <% end %>
-        </li>
-
-        <li>
-          <%= link_to root_path do %>
-          <%= image_tag "insta.png" %>
-          <% end %>
-        </li>
-
-        <li>
-          <%= link_to root_path do %>
-          <%= image_tag "twitter.png" %>
-          <% end %>
-        </li>
-      </ul>
+            <li>
+              <%= link_to root_path do %>
+              <%= image_tag "twitter.png" %>
+              <% end %>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
-	</div>
-</div>
-<div id="cuadrito">
-	<h2>Contacto: contacto@intertravex.com <br> Copyright © 2018. All Rights Reserved.</h2>
-</div>
+  <div id="cuadrito">
+   <h2>Contacto: experiencias@intertravex.com <br> Copyright © 2018. All Rights Reserved.</h2>
+ </div>
 
 
 
-<script>
+ <script>
   jQuery(function($) {
   $('#new_order').submit(function(event) { // change $('#payment-form') to $('#new_order')
     var $form = $(this);
@@ -149,7 +150,7 @@
 });
 
 
-function stripeResponseHandler(status, response) {
+  function stripeResponseHandler(status, response) {
   var $form = $('#new_order'); // change the selector that gets the form to #new_order
 
   if (response.error) {
@@ -167,5 +168,5 @@ function stripeResponseHandler(status, response) {
 }
 </script>
 
-  </body>
+</body>
 </html>
