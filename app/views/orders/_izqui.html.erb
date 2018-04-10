@@ -1,0 +1,104 @@
+<%= form_for [@block, @order], id: "new_order" do |f| %>
+<span class="payment-errors"></span>
+<div id="contact2">
+
+	<h2 class="titulo">Pasajeros</h2>
+	<hr>
+
+	<div class="row">
+		<div class="col-md-6">
+			<%= f.label :Cuántos_adultos %>
+			<%= f.select :many, [["0", 0],["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5", 5], ["6", 6], ["7", 7], ["8", 8]], required: true%>
+		</div>
+
+		<div class="col-md-6">
+			<%= f.label :Cuántos_niños %>
+			<%= f.select :many_n, [["0", 0],["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5", 5], ["6", 6], ["7", 7], ["8", 8]], required: true%>
+		</div>
+	</div>
+</div>
+
+
+<div id="contact2">
+
+	<br>
+	<div class='card-wrapper'></div>
+	<br>
+
+	<div class="row">
+		<div class="col-md-6">
+			<%= f.label :número_de_tarjeta %>
+			<input type="text" name="number" data-stripe= "number" size="16" id= "tar" >
+		</div>
+
+		<div class="col-md-6">
+			<%= f.label :nombre_de_la_tarjeta %>
+			<input type="text" name="first-name" data-stripe= "name"/>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-xs-9">
+			<%= f.label :_fecha_de_expiración %>
+			<input type="text" name="expiry"/ id="expiry2">
+		</div>
+
+		<div class="col-xs-3">
+			<%= f.label :cvc %>
+			<input type="text" name="cvc" data-stripe= "cvc" size="4"/>
+		</div>
+	</div>
+
+	<input type="text" size="2" data-stripe="exp-month" id="exo_month" class="hidden" />
+	<input type="text" size="4" data-stripe="exp-year" id="exo_year" class="hidden" />
+
+	<button type="submit" class="button button_blue button_block">Pagar Ahora $ <span id="total">0</span></button>
+
+</div>
+
+<% end %>
+
+
+
+<script>
+$(function() {
+var text = $('#multiple');
+var texto = $('#multiple2');
+var totis = $('#fene');
+
+
+
+$('#order_many').change(function() { 
+	var soup = $(this).val();
+	var noup = <%= @block.precio_adulto %>;
+	var totalip1 = soup * noup;
+	document.getElementById('max_many').innerHTML = soup;
+	document.getElementById('multiple').innerHTML = totalip1;
+	var mex = parseInt(document.getElementById('multiple').innerHTML) + parseInt(document.getElementById('multiple2').innerHTML);
+	document.getElementById('fene').innerHTML = mex;
+
+	document.getElementById('total').innerHTML = totis.text();
+
+});
+
+
+$('#order_many_n').change(function() { 
+	var soup = $(this).val();
+	var noup = <%= @block.precio_nino %>;
+	var totalip2 = soup * noup;
+	document.getElementById('max_many2').innerHTML = soup;
+	document.getElementById('multiple2').innerHTML = totalip2;
+	var mex2 = parseInt(document.getElementById('multiple').innerHTML) + parseInt(document.getElementById('multiple2').innerHTML);
+	document.getElementById('fene').innerHTML = mex2;
+
+	document.getElementById('total').innerHTML = totis.text();
+});
+
+
+
+
+
+});
+
+
+</script>
