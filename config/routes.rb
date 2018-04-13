@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :images
   resources :experiences
   get 'viajes_corporativos' => 'pages#corporativos'
+  get 'mis_experiencias' => 'pages#mis_experiencias'
 
   resources :contacts, only: [:new, :create]
 	mount Ckeditor::Engine => '/ckeditor'

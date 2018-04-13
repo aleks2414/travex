@@ -55,7 +55,7 @@
                 <li class="<%= 'activo' if current_page?(new_contact_path) %>"><a href="<%=new_contact_path %>">Contacto</a></li>
                 <% if user_signed_in? && current_user.admin? %>
                 <li>
-                  <%= link_to 'Nueva Experiencia', new_experience_path %>
+                  <%= link_to 'Dashboard', mis_experiencias_path %>
                 </li>
                 <% end %>
                 <% if user_signed_in? %>

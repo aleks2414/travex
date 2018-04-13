@@ -46,6 +46,9 @@ gem 'geocoder'
 gem "cocoon"
 gem 'stripe'
 gem 'dotenv-rails', :groups => [:development, :test]
+
+gem 'prawn_rails'
+gem 'prawn-table'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password

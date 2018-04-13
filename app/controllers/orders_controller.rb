@@ -9,6 +9,7 @@ class OrdersController < ApplicationController
 
 	def show
 		@order = Order.find(params[:id])
+    @block = Block.find(params[:block_id])
 		@price = @order.block.precio_adulto.to_f / 100
 	end
 

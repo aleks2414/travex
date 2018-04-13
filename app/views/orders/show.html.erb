@@ -1,6 +1,90 @@
-<article>
-  <h1>Thank you</h1>
-  <h2><%= @order.block.experience.nombre %></h2>
-  <p>£ <%= @price %></p>
-  <p>Stripe token: <%= @order.stripe_token %></p>
-</article>
+<div class="container">
+	<div class="row">
+		<div class="col-md-6 col-md-offset-3">
+			<div id="contact2">
+				<h2><%=@order.user.name%></h2>
+				<h2>Gracias por Reservar <br>	"<%= @order.block.experience.nombre %>" </h2>
+				<div id="im">
+					<%= image_tag @block.experience.foto %>
+				</div>
+				<p class="center">Para Inter Travex será un honor tenerte a ti y tu familia con nosotros viviendo esta gran aventura. Estos son los detalles de tu compra:</p>
+				<div id="informacion"> 
+				
+				<div class="row">
+				<div class="col-md-6">
+				<h3>Fecha de salida:</h3>
+				<h6><%= @block.fecha_salida %></h6>
+				</div>
+
+				<div class="col-md-6">
+				<h3>Fecha de regreso:</h3>
+				<h6><%= @block.fecha_regreso %></h6>
+				</div>
+				</div>
+
+				<div class="row">
+				<div class="col-md-6">
+				<h3>Lugar de salida:</h3>
+				<h6><%= @block.lugar_salida %></h6>
+				</div>
+
+				<div class="col-md-6">
+				<h3>Hora de salida:</h3>
+				<h6><%= @block.hora_salida.strftime("%H:%M") %>hrs.</h6>
+				</div>
+				</div>
+
+				</div>
+<br><br>
+<div id="table">
+<div class="content table-responsive table-full-width">
+      <table class="table table-hover table-striped">
+        <thead>
+					<th></th>
+					<th></th>
+					<th></th>
+        </thead>
+        <tbody>
+          <tr>
+          <td><%= @order.many %></td>
+					<td><%=number_to_currency(@block.precio_adulto)%> x/ adulto</td>
+					<td><%= @a= number_to_currency(@block.precio_adulto * @order.many) %></td>
+          </tr>
+
+          <tr>
+					<td></td>
+					<td></td>
+					<td></td>
+          </tr>
+
+          <tr>
+          	<td><%= @order.many_n%></td>
+					<td><%=number_to_currency(@block.precio_nino) %> x/ niño</td>
+					<td><%= @b= number_to_currency(@block.precio_nino * @order.many_n) %></td>
+          </tr>
+
+          <tr>
+					<td></td>
+					<td></td>
+					<td></td>
+          </tr>
+
+          <tr>
+					<td></td>
+					<td></td>
+					<td>Total: <%= number_to_currency((@block.precio_nino * @order.many_n) + (@block.precio_adulto * @order.many))%></td>
+					
+          </tr>
+        </tbody>
+      </table>
+    </div>
+</div>
+				<p class="center">Descarga más información:</p> <br>
+				<%= link_to block_order_path(@block, @order, format: 'pdf') do %>
+				<button class="button button_blue button_center">Descargar Información</button>
+				<% end %>
+				<p class="center">Stripe token: <%= @order.stripe_token %></p>
+			</div>
+		</div>
+	</div>
+</div>

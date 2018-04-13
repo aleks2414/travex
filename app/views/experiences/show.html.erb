@@ -46,15 +46,16 @@
 
 <div id="bloques">
       <% @experience.blocks.each_with_index do |block, i| %>
-      <div id="cerca">
-        <h5><%=i+1%>) Salida: <%=block.lugar_salida%> - Hora: <%= block.hora_salida.strftime(" %X") %></h5>
-        <h5>Fechas: <%=block.fecha_salida.strftime(" %b-%d-%Y")%> - <%= block.fecha_regreso.strftime(" %b-%d-%Y") %></h5>
-        <h5>Precio de adulto: $<%=block.precio_adulto%></h5>
-        <h5>Precio de niño: $<%=block.precio_nino%></h5>
-        <h5>Disponibilidad: <%= block.capacidad %> personas</h5>
+      <div id="contact2"> <br>
+        <h4><%=i+1%>.- <br><br> Lugar de salida: <%=block.lugar_salida%></h4>
+        <h4> Hora de salida: <%= block.hora_salida.strftime(" %X") %></h4>
+        <h4>Fechas: <%=block.fecha_salida.strftime(" %b-%d-%Y")%> - <%= block.fecha_regreso.strftime(" %b-%d-%Y") %></h4>
+        <h4>Precio de adulto: $<%=block.precio_adulto%></h4>
+        <h4>Precio de niño: $<%=block.precio_nino%></h4>
+        <h4>Disponibilidad: <%= block.capacidad %> personas</h4>
         
         <%= link_to new_block_order_path(block), data: { no_turbolink: true } do %>
-            <button class="button button_blue button_block">Reversar</button>
+            <button class="button button_blue button_block">Reservar</button>
         <% end %>
       </div>
     <% end %>
@@ -69,7 +70,7 @@
 <div class="container">
   <div id="titulos">
     <h1 class="titulo center">¿Cómo reservo esta experiencia?</h1>
-    <p class="center">Lorem ipsum dolor amet blue bottle affogato direct trade <br> stumptown pork belly fam, scenester.</p>
+    <p class="center">Vivir una experiencia única con nosotros es lo más sencillo:</p>
   </div>
 </div>
 
