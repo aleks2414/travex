@@ -45,18 +45,25 @@
       <hr>
 
 <div id="bloques">
-      <% @experience.blocks.each_with_index do |block, i| %>
+      <% @blocks.each_with_index do |block, i| %>
       <div id="contact2"> <br>
-        <h4><%=i+1%>.- <br><br> Lugar de salida: <%=block.lugar_salida%></h4>
         <h4> Hora de salida: <%= block.hora_salida.strftime("%H:%M") %></h4>
         <h4>Fechas: <%=block.fecha_salida.strftime(" %b-%d-%Y")%> - <%= block.fecha_regreso.strftime(" %b-%d-%Y") %></h4>
         <h4>Precio de adulto: $<%=block.precio_adulto%></h4>
         <h4>Precio de niño: $<%=block.precio_nino%></h4>
         <h4>Disponibilidad: <%= block.capacidad %> personas</h4>
         
+
+        <% if block.orders.count == block.capacidad %>
+          <button class="button button_grey button_block">Agotados</button>
+        
+        <% else %>
         <%= link_to new_block_order_path(block), data: { no_turbolink: true } do %>
             <button class="button button_blue button_block">Reservar</button>
         <% end %>
+
+        <% end %>
+
       </div>
     <% end %>
 </div>

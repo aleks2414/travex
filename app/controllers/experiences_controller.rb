@@ -29,6 +29,7 @@ class ExperiencesController < ApplicationController
     @experiences = Experience.where(:disponible => true).limit(3)
     @contact = Contact.new
     @images = @experience.images.all
+    @blocks = @experience.blocks.where("fecha_salida >= ?", Time.zone.now.beginning_of_day).order('id ASC')
 
     prepare_meta_tags(title: "",
       description: "", 
