@@ -116,13 +116,13 @@
 <div id="expes">
   <div class="row">
     <h1 class="titulo center">Otras Experiencias que te pueden interesar</h1>
-    <p class="center">Lorem ipsum dolor amet blue bottle affogato direct trade <br> stumptown pork belly fam, scenester.</p> <br><br>
+    <p class="center">Porque una vez que empiezas a conocer las maravillas de México no te puedes detener</p> <br><br>
 
-<% @experiences.each do |experience| %>
+    <% @experiences.each do |experience| %>
 <div class="col-md-4 col-sm-6">
       <div id="expes_1">
       <div class="imagen">
-        <%= image_tag "banner_home.png" %>
+        <%= image_tag experience.foto.thumb %>
       </div>
       <div class="datos">
         <h5><%= experience.categoria %></h5>

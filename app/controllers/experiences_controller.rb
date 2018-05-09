@@ -26,7 +26,7 @@ class ExperiencesController < ApplicationController
   # GET /experiences/1
   # GET /experiences/1.json
   def show
-    @experiences = Experience.where(:disponible => true).limit(3)
+    @experiences = Experience.where(:disponible => true).order('id ASC').limit(3)
     @contact = Contact.new
     @images = @experience.images.all
     @blocks = @experience.blocks.where("fecha_salida >= ?", Time.zone.now.beginning_of_day).order('id ASC')
