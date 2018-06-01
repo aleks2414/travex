@@ -47,6 +47,7 @@
 <div id="bloques">
       <% @blocks.each_with_index do |block, i| %>
       <div id="contact2"> <br>
+        <h4> Lugar de salida: <%= block.lugar_salida %></h4>
         <h4> Hora de salida: <%= block.hora_salida.strftime("%H:%M") %></h4>
         <h4>Fechas: <%=block.fecha_salida.strftime(" %b-%d-%Y")%> - <%= block.fecha_regreso.strftime(" %b-%d-%Y") %></h4>
         <h4>Precio de adulto: $<%=block.precio_adulto%></h4>
