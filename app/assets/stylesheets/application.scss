@@ -36,11 +36,7 @@ font-size: 22px;
 font-weight: 900;
 }
 
-p {
-font-size: 13px;
-font-weight: 300;
-margin-top: 20px;
-}
+
 
 .button {
   transition: background-color .15s linear;
@@ -674,6 +670,12 @@ margin-bottom: 20px;
 
 #tablon {
   margin-top: 60px;
+}
+
+p {
+font-size: 13px !important;
+font-weight: 900 !important;
+margin-top: 20px !important;
 }
 
 /*Media*/
