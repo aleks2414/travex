@@ -1,20 +1,9 @@
-
-<div class="hero">
-	<div class="container">
-	<div class="row">
-		<div class="col-md-6">
-			<div id="banner_1">
-				<h1 class="titulo white">Las mejores experiencias en México</h1>
-				<p class="white hidden-xs">Es momento de tomar un descanso y acompañarnos a disfrutar de las mejores experiencias turísticas, gastronómicas, culturales y tradiciones de México</p>
-				
-				<%= link_to new_contact_path do %>
-				<button class="button button_blue2">Más información</button>
-				<% end %>
-			</div>
-		</div>
-	</div>
-	</div>
-</div>
+<div class="owl-carousel">
+<%= render 'hero_1' %>
+<%= render 'hero_2' %>
+<%= render 'hero_3' %>
+<%= render 'hero_4' %>
+</div> 
 
 <div class="container">
 	<div id="titulos">
@@ -91,7 +80,7 @@
         <h3><%= experience.nombre %></h3>
         <h6> <span class="fa fa-map-marker"> </span> <%= experience.lugar %></h6>
         <%= link_to experience do %>
-        <button class="button button_blue2">Reserva Ahora! -></button>
+        <button class="button button_blue2">Conoce más! -></button>
         <% end %>
       </div>
     </div>
@@ -149,3 +138,32 @@
 <button class="button button_blue button_center">Contáctanos</button>
 <% end %>
 </div>
+
+
+<script>
+var owl = $('.owl-carousel');
+owl.owlCarousel({
+    items:1,
+    loop:true,
+    margin:10,
+    autoPlay:true,
+    autoplayTimeout:1000,
+    autoplayHoverPause:true,
+    responsiveClass:true,
+    responsive:{
+        0:{
+            items:1,
+            nav:true
+        },
+        600:{
+            items:2,
+            nav:true
+        },
+        1000:{
+            items:1,
+            nav:true,
+            loop:true
+        }
+    }
+});
+</script>
