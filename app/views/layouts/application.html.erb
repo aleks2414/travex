@@ -60,7 +60,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav navbar-right">
                 <li class="<%= 'activo' if current_page?(experiences_path) %>"><a href="<%=experiences_path %>">Experiencias</a></li>
-                <li class="<%= 'activo' if current_page?(viajes_corporativos_path) %>"><a href="<%=viajes_corporativos_path %>">Viajes Corporativos</a></li>
+                <li class="<%= 'activo' if current_page?(viajes_corporativos_path) %>"><a href="<%=viajes_corporativos_path %>">Servicios Corporativos</a></li>
                 <li class="<%= 'activo' if current_page?(new_contact_path) %>"><a href="<%=new_contact_path %>">Contacto</a></li>
                 <% if user_signed_in? && current_user.admin? %>
                 <li>
