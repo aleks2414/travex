@@ -1,5 +1,5 @@
 <div class="hero3">
-	<h1 class="white center">Experiencias de gran calidad</h1>
+	<h1 class="white center">Servicios Corporativos</h1>
 	<div class="col-md-6 col-md-offset-3">
 	<p class="white center hidden-xs">Nuestros autobuses de mejor calidad y nuestros operadores están listos para llevarte comodamente a vivir experiencias únicas por todo el país. </p>
 	</div>
@@ -17,8 +17,7 @@
 				</div>
 				<div class="col-md-6">
 					<div id="contact_der">
-						<h1 class="titulo white">Servicios Corporativos</h1>
-						<p class="white">Cuando se trata de comodidad, buen servicio, seguridad y garantía, nosotros somos el número uno. Buscaremos en todo momento hacerte sentir como en casa mientras conoces los mejores lugares y vives las mejores experiencias</p>
+						<p class="white">Nuestro principal objetivo es adaptarnos a las necesidades del cliente ofreciendo un servicio de administración integral en la organización de eventos empresariales; desde eventos de integración, congresos, convenciones, viajes de incentivos, team building, seminarios, conferencias de trabajo, capacitaciones, cenas empresariales o cualquier tipo de espectáculo. <br> Nos satisface ofrecer a nuestros clientes un servicio completo de logística de transportación y garantizar el éxito en sus eventos.</p>
 					</div>
 				</div>
 				<div class="col-md-6 hidden-sm hidden-xs">
@@ -38,7 +37,6 @@
 				<div><%= image_tag "banner_home5.jpg" %></div>
 				<div><%= image_tag "banner_home6.jpg" %></div>
 				<div><%= image_tag "banner_home7.jpg" %></div>
-				<div><%= image_tag "banner_home8.jpg" %></div>
 			</div>
 		</div>
 	</div>
@@ -46,7 +44,7 @@
 	<div class="container">
 		<div id="titulos">
 			<h1 class="titulo center white">Beneficios</h1>
-			<p class="center white">Un sinfin de caractarísticas especiales que te harán preferirnos sobre cualquier otra opción</p>
+			<p class="center white">Intertravex puede ser un elemento clave para la organización de tus eventos.</p>
 		</div>
 	</div>
 
@@ -57,22 +55,22 @@
 		<div class="row">
 			<div class="col-md-4">
 				<div id="producto">
-					<%= image_tag "experiencias.png" %>
-					<h2 class="white">Te llevamos</h2>
+					<%= image_tag "planear.png" %>
+					<h2 class="white">Planeamos</h2>
+				</div>
+			</div>
+
+			<div class="col-md-4">
+				<div id="producto">
+					<%= image_tag "corporativos.png" %>
+					<h2 class="white">Desarrollamos</h2>
 				</div>
 			</div>
 
 			<div class="col-md-4">
 				<div id="producto">
 					<%= image_tag "experiencias.png" %>
-					<h2 class="white">Te organizamos</h2>
-				</div>
-			</div>
-
-			<div class="col-md-4">
-				<div id="producto">
-					<%= image_tag "experiencias.png" %>
-					<h2 class="white">Te operamos</h2>
+					<h2 class="white">Ejecutamos</h2>
 				</div>
 			</div>
 		</div>
@@ -83,45 +81,46 @@
 <div class="container">
 	<div id="nume">
 	<div class="row">
+
 		<div class="col-md-2 col-xs-4">
 			<div id="nume_1">
-				<%= image_tag "icono_01.png" %>
-				<p class="white">Hoteles</p>
+				<%= image_tag "icono_04.png" %>
+				<p class="white center">Hospedaje</p>
+			</div>
+		</div>
+
+		<div class="col-md-2 col-xs-4">
+			<div id="nume_1">
+				<%= image_tag "icono_05.png" %>
+				<p class="white center">Congresos</p>
+			</div>
+		</div>
+
+		<div class="col-md-2 col-xs-4">
+			<div id="nume_1">
+				<%= image_tag "icono_06.png" %>
+				<p class="white center">Salones de Eventos</p>
 			</div>
 		</div>
 
 		<div class="col-md-2 col-xs-4">
 			<div id="nume_1">
 				<%= image_tag "icono_02.png" %>
-				<p class="white">Restaurantes</p>
+				<p class="white center">Transportación</p>
 			</div>
 		</div>
 
 		<div class="col-md-2 col-xs-4">
 			<div id="nume_1">
 				<%= image_tag "icono_03.png" %>
-				<p class="white">Congresos</p>
+				<p class="white center">Eventos Especiales</p>
 			</div>
 		</div>
 
 		<div class="col-md-2 col-xs-4">
 			<div id="nume_1">
 				<%= image_tag "icono_01.png" %>
-				<p class="white">Comidas</p>
-			</div>
-		</div>
-
-		<div class="col-md-2 col-xs-4">
-			<div id="nume_1">
-				<%= image_tag "icono_02.png" %>
-				<p class="white">Eventos Especiales</p>
-			</div>
-		</div>
-
-		<div class="col-md-2 col-xs-4">
-			<div id="nume_1">
-				<%= image_tag "icono_03.png" %>
-				<p class="white">Wifi</p>
+				<p class="white center">Cenas empresariales</p>
 			</div>
 		</div>
 
@@ -148,6 +147,11 @@
 			<div class="field">
 				<%= f.label :Email %><br>
 				<%= f.email_field :email, required:true %>
+			</div>
+
+			<div class="field">
+				<%= f.label :Teléfono %><br>
+				<%= f.email_field :phone %>
 			</div>
 
 			<%= f.text_field :donde, :value => "#{params[:controller]} - #{request.original_url}", class: "hidden" %>
