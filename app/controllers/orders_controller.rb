@@ -1,6 +1,6 @@
 # app/controllers/orders_controller.rb
 class OrdersController < ApplicationController
-	before_action :authenticate_user!, except: [:show, :index]
+	before_action :authenticate_user!, except: [:show]
 	
 	def new
 		@block = Block.find(params[:block_id])
@@ -12,6 +12,10 @@ class OrdersController < ApplicationController
     @block = Block.find(params[:block_id])
 		@price = @order.block.precio_adulto.to_f / 100
 	end
+
+  def index
+    @orders = Order.all
+  end
 
 
 def create
