@@ -55,6 +55,41 @@
   </div>
   
 </div>
+
+
+<div class="row">
+
+
+ <div class="col-md-3">
+  <div class="field">
+    <%= f.label :precio_por_habitacion_doble %><br>
+    <%= f.number_field :habitacion_doble, step: :any, required:true %>
+  </div>
+  </div>
+
+ <div class="col-md-3">
+  <div class="field">
+    <%= f.label :precio_por_habitacion_triple %><br>
+    <%= f.number_field :habitacion_triple, step: :any, required:true %>
+  </div>
+  </div>
+
+ <div class="col-md-3">
+  <div class="field">
+    <%= f.label :precio_por_habitacion_cuadruple %><br>
+    <%= f.number_field :habitacion_cuadruple, step: :any, required:true %>
+  </div>
+  </div>
+
+ <div class="col-md-3">
+  <div class="field">
+    <%= f.label :precio_menor_extra %><br>
+    <%= f.number_field :menor_extra, step: :any, required:true %>
+  </div>
+  </div>
+  
+</div>
+
 <%= link_to_remove_association "Quitar Paquete", f %>
 <hr>
 <hr>

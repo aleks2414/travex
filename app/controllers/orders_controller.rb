@@ -31,7 +31,7 @@ def create
     
     Stripe::Charge.create(
       :description => @block.experience.nombre,
-      :amount => ((@block.precio_adulto.round*100)*@order.many)+((@block.precio_nino.round*100)*@order.many_n),
+      :amount => ((@block.precio_adulto.round*100)*@order.many)+((@block.precio_nino.round*100)*@order.many_n)+((@block.habitacion_doble.round*100)*@order.hab_doble)+((@block.habitacion_triple.round*100)*@order.hab_triple)+((@block.habitacion_cuadruple.round*100)*@order.hab_cuadrupple)+((@block.menor_extra.round*100)*@order.menor_ex),
       :currency => "mxn",
       :card => @order.stripe_token # obtained with Stripe.js
     )
@@ -52,7 +52,7 @@ end
 
 	private
 	def order_params
-		params.require(:order).permit(:stripe_token, :block_id, :many, :many_n)
+		params.require(:order).permit(:stripe_token, :block_id, :many, :many_n, :hab_doble, :hab_triple, :hab_cuadrupple, :menor_ex, :total )
 	end
 end
 

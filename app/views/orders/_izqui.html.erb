@@ -1,5 +1,9 @@
 <%= form_for [@block, @order], id: "new_order" do |f| %>
 <span class="payment-errors"></span>
+
+
+
+<%  if @block.experience.dias == "1 día" %>
 <div id="contact2">
 
 	<h2 class="titulo">Pasajeros</h2>
@@ -17,6 +21,47 @@
 		</div>
 	</div>
 </div>
+
+<% else %>
+
+<div id="contact2">
+
+	<h2 class="titulo">Habitaciones</h2>
+	<hr>
+
+	<div class="row">
+		<div class="col-md-6">
+			<%= f.label :Habitación_doble %>
+			<%= f.select :hab_doble, [["0", 0],["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5", 5], ["6", 6], ["7", 7], ["8", 8]], required: true%>
+		</div>
+
+		<div class="col-md-6">
+			<%= f.label :Habitación_triple %>
+			<%= f.select :hab_triple, [["0", 0],["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5", 5], ["6", 6], ["7", 7], ["8", 8]], required: true%>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-6">
+			<%= f.label :Habitación_cuádruple %>
+			<%= f.select :hab_cuadrupple, [["0", 0],["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5", 5], ["6", 6], ["7", 7], ["8", 8]], required: true%>
+		</div>
+
+		<div class="col-md-6">
+			<%= f.label :Menor_extra %>
+			<%= f.select :menor_ex, [["0", 0],["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5", 5], ["6", 6], ["7", 7], ["8", 8]], required: true%>
+		</div>
+	</div>
+
+
+  <div class="field">
+    <%= f.label :total %>
+    <%= f.number_field :total, id: "totalimus" %>
+  </div>
+
+</div>
+
+<% end %>
 
 
 <div id="contact2">
@@ -64,6 +109,10 @@
 $(function() {
 var text = $('#multiple');
 var texto = $('#multiple2');
+var texto = $('#multiple3');
+var texto = $('#multiple4');
+var texto = $('#multiple5');
+var texto = $('#multiple6');
 var totis = $('#fene');
 
 
@@ -78,6 +127,8 @@ $('#order_many').change(function() {
 	document.getElementById('fene').innerHTML = mex;
 
 	document.getElementById('total').innerHTML = totis.text();
+	document.getElementById('totalimus').value = totis.text();
+
 
 });
 
@@ -92,6 +143,66 @@ $('#order_many_n').change(function() {
 	document.getElementById('fene').innerHTML = mex2;
 
 	document.getElementById('total').innerHTML = totis.text();
+	document.getElementById('totalimus').value = totis.text();
+});
+
+
+
+
+
+$('#order_hab_doble').change(function() { 
+	var soup = $(this).val();
+	var noup = <%= @block.habitacion_doble %>;
+	var totalip3 = soup * noup;
+	document.getElementById('max_many3').innerHTML = soup;
+	document.getElementById('multiple3').innerHTML = totalip3;
+	var mex3 = parseInt(document.getElementById('multiple4').innerHTML) + parseInt(document.getElementById('multiple3').innerHTML) + parseInt(document.getElementById('multiple5').innerHTML) + parseInt(document.getElementById('multiple6').innerHTML);
+	document.getElementById('fene').innerHTML = mex3;
+
+	document.getElementById('total').innerHTML = totis.text();
+	document.getElementById('totalimus').value = totis.text();
+});
+
+
+$('#order_hab_triple').change(function() { 
+	var soup = $(this).val();
+	var noup = <%= @block.habitacion_triple %>;
+	var totalip4 = soup * noup;
+	document.getElementById('max_many4').innerHTML = soup;
+	document.getElementById('multiple4').innerHTML = totalip4;
+	var mex4 = parseInt(document.getElementById('multiple4').innerHTML) + parseInt(document.getElementById('multiple3').innerHTML) + parseInt(document.getElementById('multiple5').innerHTML) + parseInt(document.getElementById('multiple6').innerHTML);
+	document.getElementById('fene').innerHTML = mex4;
+
+	document.getElementById('total').innerHTML = totis.text();
+	document.getElementById('totalimus').value = totis.text();
+});
+
+
+$('#order_hab_cuadrupple').change(function() { 
+	var soup = $(this).val();
+	var noup = <%= @block.habitacion_cuadruple %>;
+	var totalip5 = soup * noup;
+	document.getElementById('max_many5').innerHTML = soup;
+	document.getElementById('multiple5').innerHTML = totalip5;
+	var mex5 = parseInt(document.getElementById('multiple4').innerHTML) + parseInt(document.getElementById('multiple3').innerHTML) + parseInt(document.getElementById('multiple5').innerHTML) + parseInt(document.getElementById('multiple6').innerHTML);
+	document.getElementById('fene').innerHTML = mex5;
+
+	document.getElementById('total').innerHTML = totis.text();
+	document.getElementById('totalimus').value = totis.text();
+});
+
+
+$('#order_menor_ex').change(function() { 
+	var soup = $(this).val();
+	var noup = <%= @block.menor_extra %>;
+	var totalip6 = soup * noup;
+	document.getElementById('max_many6').innerHTML = soup;
+	document.getElementById('multiple6').innerHTML = totalip6;
+	var mex6 = parseInt(document.getElementById('multiple4').innerHTML) + parseInt(document.getElementById('multiple3').innerHTML) + parseInt(document.getElementById('multiple5').innerHTML) + parseInt(document.getElementById('multiple6').innerHTML);
+	document.getElementById('fene').innerHTML = mex6;
+
+	document.getElementById('total').innerHTML = totis.text();
+	document.getElementById('totalimus').value = totis.text();
 });
 
 
@@ -99,6 +210,5 @@ $('#order_many_n').change(function() {
 
 
 });
-
 
 </script>

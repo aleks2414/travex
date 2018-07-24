@@ -17,6 +17,11 @@
 					<th>Email</th>
 					<th>Número de adultos</th>
 					<th>Número de niños</th>
+					<th>Habitación doble</th>
+					<th>Habitación triple</th>
+					<th>Habitación cuadruple</th>
+					<th>Menos Extra</th>
+					<th>Total pagado</th>
 					<th colspan="3"></th>
 				</thead>
 				<tbody>
@@ -28,6 +33,11 @@
 						<td><%= order.user.email %></td> 
 						<td><%= order.many%></td>
 						<td><%= order.many_n%></td>
+						<td><%= order.hab_doble%></td>
+						<td><%= order.hab_triple%></td>
+						<td><%= order.hab_cuadrupple%></td>
+						<td><%= order.menor_ex%></td>
+						<td><%= number_to_currency order.total%></td>
             <td><%= link_to 'Ver más', block_order_path(order.block, order) %></td>
             <td><%= link_to 'Editar', edit_block_order_path(order.block, order) %></td>
             <td><%= link_to 'Eliminar', block_order_path(order.block, order), method: :delete, data: { confirm: 'Are you sure?' } %></td>

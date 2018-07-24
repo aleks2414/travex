@@ -40,7 +40,7 @@
 
   <div class="field">
     <%= form.label :dias %>
-    <%= form.text_field :dias, id: :experience_dias, required: true %>
+    <%= form.select :dias, [["1 día"], ["Fin de semana"], ["Puente"], ["Semana completa"]], {:prompt => 'Elige Número de días'}, {:required => true}%>
   </div>
 
   <div class="field">

@@ -10,6 +10,9 @@
 
 	<p><%=@block.experience.descripcion.html_safe %></p>
 
+
+<%  if @block.experience.dias == "1 día" %>
+
 <div id="table">
 <div class="content table-responsive table-full-width">
       <table class="table table-hover table-striped">
@@ -52,5 +55,79 @@
       </table>
     </div>
 </div>
+
+<% else %>
+
+
+<div id="table">
+<div class="content table-responsive table-full-width">
+      <table class="table table-hover table-striped">
+        <thead>
+					<th>#</th>
+					<th></th>
+					<th></th>
+        </thead>
+        <tbody>
+          <tr>
+          	<td><span id="max_many3"></span></td>
+					<td><%=number_to_currency(@block.habitacion_doble)%> x/ habitación doble</td>
+					<td>$ <span id="multiple3">0</span> </td>
+          </tr>
+
+          <tr>
+					<td></td>
+					<td></td>
+					<td></td>
+          </tr>
+
+          <tr>
+          	<td><span id="max_many4"></span></td>
+					<td><%=number_to_currency(@block.habitacion_triple) %> x/  habitación triple</td>
+					<td>$ <span id="multiple4">0</span></td>
+          </tr>
+
+          <tr>
+					<td></td>
+					<td></td>
+					<td></td>
+          </tr>
+
+          <tr>
+          	<td><span id="max_many5"></span></td>
+					<td><%=number_to_currency(@block.habitacion_cuadruple) %> x/  habitación cuádruple</td>
+					<td>$ <span id="multiple5">0</span></td>
+          </tr>
+
+
+          <tr>
+					<td></td>
+					<td></td>
+					<td></td>
+          </tr>
+
+          <tr>
+          	<td><span id="max_many6"></span></td>
+					<td><%=number_to_currency(@block.menor_extra) %> x/  menor extra</td>
+					<td>$ <span id="multiple6">0</span></td>
+          </tr>
+
+          <tr>
+					<td></td>
+					<td></td>
+					<td></td>
+          </tr>
+
+          <tr>
+					<td></td>
+					<td>Total:</td>
+					<td>$ <span id="fene">0</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+</div>
+
+
+<% end %>
 
 </div>

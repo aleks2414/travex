@@ -9,76 +9,155 @@
 				</div>
 				<p class="center">Para Inter Travex será un honor tenerte a ti y tu familia con nosotros viviendo esta gran aventura. Estos son los detalles de tu compra:</p>
 				<div id="informacion"> 
-				
-				<div class="row">
-				<div class="col-md-6">
-				<h3>Fecha de salida:</h3>
-				<h6><%= @block.fecha_salida %></h6>
+
+					<div class="row">
+						<div class="col-md-6">
+							<h3>Fecha de salida:</h3>
+							<h6><%= @block.fecha_salida %></h6>
+						</div>
+
+						<div class="col-md-6">
+							<h3>Fecha de regreso:</h3>
+							<h6><%= @block.fecha_regreso %></h6>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-md-6">
+							<h3>Lugar de salida:</h3>
+							<h6><%= @block.lugar_salida %></h6>
+						</div>
+
+						<div class="col-md-6">
+							<h3>Hora de salida:</h3>
+							<h6><%= @block.hora_salida.strftime("%H:%M") %>hrs.</h6>
+						</div>
+					</div>
+
+				</div>
+				<br><br>
+
+				<%  if @block.experience.dias == "1 día" %>
+				<div id="table">
+					<div class="content table-responsive table-full-width">
+						<table class="table table-hover table-striped">
+							<thead>
+								<th></th>
+								<th></th>
+								<th></th>
+							</thead>
+							<tbody>
+								<tr>
+									<td><%= @order.many %></td>
+									<td><%=number_to_currency(@block.precio_adulto)%> x/ adulto</td>
+									<td><%= @a= number_to_currency(@block.precio_adulto * @order.many) %></td>
+								</tr>
+
+								<tr>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+
+								<tr>
+									<td><%= @order.many_n%></td>
+									<td><%=number_to_currency(@block.precio_nino) %> x/ niño</td>
+									<td><%= @b= number_to_currency(@block.precio_nino * @order.many_n) %></td>
+								</tr>
+
+								<tr>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+
+								<tr>
+									<td></td>
+									<td></td>
+									<td>Total: <%= number_to_currency((@block.precio_nino * @order.many_n) + (@block.precio_adulto * @order.many))%></td>
+
+								</tr>
+							</tbody>
+						</table>
+					</div>
 				</div>
 
-				<div class="col-md-6">
-				<h3>Fecha de regreso:</h3>
-				<h6><%= @block.fecha_regreso %></h6>
+				<% else %>
+
+				<div id="table">
+					<div class="content table-responsive table-full-width">
+						<table class="table table-hover table-striped">
+							<thead>
+								<th></th>
+								<th></th>
+								<th></th>
+							</thead>
+							<tbody>
+								<tr>
+									<td><%= @order.hab_doble %></td>
+									<td><%=number_to_currency(@block.habitacion_doble)%> x/ habitación doble</td>
+									<td><%= @a= number_to_currency(@block.habitacion_doble * @order.hab_doble) %></td>
+								</tr>
+
+								<tr>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+
+								<tr>
+									<td><%= @order.hab_triple%></td>
+									<td><%=number_to_currency(@block.habitacion_triple) %> x/ niño</td>
+									<td><%= @b= number_to_currency(@block.habitacion_triple * @order.hab_triple) %></td>
+								</tr>
+
+								<tr>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+
+
+								<tr>
+									<td><%= @order.hab_cuadrupple%></td>
+									<td><%=number_to_currency(@block.habitacion_cuadruple) %> x/ niño</td>
+									<td><%= @b= number_to_currency(@block.habitacion_cuadruple * @order.hab_cuadrupple) %></td>
+								</tr>
+
+								<tr>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+
+
+								<tr>
+									<td><%= @order.menor_ex%></td>
+									<td><%=number_to_currency(@block.menor_extra) %> x/ niño</td>
+									<td><%= @b= number_to_currency(@block.menor_extra * @order.menor_ex) %></td>
+								</tr>
+
+								<tr>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+
+
+
+								<tr>
+									<td></td>
+									<td></td>
+									<td>Total: <%= number_to_currency @order.total%></td>
+
+								</tr>
+							</tbody>
+						</table>
+					</div>
 				</div>
-				</div>
 
-				<div class="row">
-				<div class="col-md-6">
-				<h3>Lugar de salida:</h3>
-				<h6><%= @block.lugar_salida %></h6>
-				</div>
 
-				<div class="col-md-6">
-				<h3>Hora de salida:</h3>
-				<h6><%= @block.hora_salida.strftime("%H:%M") %>hrs.</h6>
-				</div>
-				</div>
-
-				</div>
-<br><br>
-<div id="table">
-<div class="content table-responsive table-full-width">
-      <table class="table table-hover table-striped">
-        <thead>
-					<th></th>
-					<th></th>
-					<th></th>
-        </thead>
-        <tbody>
-          <tr>
-          <td><%= @order.many %></td>
-					<td><%=number_to_currency(@block.precio_adulto)%> x/ adulto</td>
-					<td><%= @a= number_to_currency(@block.precio_adulto * @order.many) %></td>
-          </tr>
-
-          <tr>
-					<td></td>
-					<td></td>
-					<td></td>
-          </tr>
-
-          <tr>
-          	<td><%= @order.many_n%></td>
-					<td><%=number_to_currency(@block.precio_nino) %> x/ niño</td>
-					<td><%= @b= number_to_currency(@block.precio_nino * @order.many_n) %></td>
-          </tr>
-
-          <tr>
-					<td></td>
-					<td></td>
-					<td></td>
-          </tr>
-
-          <tr>
-					<td></td>
-					<td></td>
-					<td>Total: <%= number_to_currency((@block.precio_nino * @order.many_n) + (@block.precio_adulto * @order.many))%></td>
-					
-          </tr>
-        </tbody>
-      </table>
-    </div>
-</div>
+				<% end %>
 				<p class="center">Descarga más información:</p> <br>
 				<%= link_to block_order_path(@block, @order, format: 'pdf') do %>
 				<button class="button button_blue button_center">Descargar Información</button>

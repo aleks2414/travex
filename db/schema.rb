@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180614235628) do
+ActiveRecord::Schema.define(version: 20180724022858) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,10 @@ ActiveRecord::Schema.define(version: 20180614235628) do
     t.integer "capacidad", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "habitacion_doble", default: 0.0
+    t.float "habitacion_triple", default: 0.0
+    t.float "habitacion_cuadruple", default: 0.0
+    t.float "menor_extra", default: 0.0
     t.index ["experience_id"], name: "index_blocks_on_experience_id"
   end
 
@@ -75,12 +79,17 @@ ActiveRecord::Schema.define(version: 20180614235628) do
 
   create_table "orders", force: :cascade do |t|
     t.string "stripe_token"
-    t.integer "many", default: 1
+    t.integer "many", default: 0
     t.integer "many_n", default: 0
     t.bigint "block_id"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "hab_doble", default: 0
+    t.integer "hab_triple", default: 0
+    t.integer "hab_cuadrupple", default: 0
+    t.integer "menor_ex", default: 0
+    t.float "total", default: 0.0
     t.index ["block_id"], name: "index_orders_on_block_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
