@@ -3,7 +3,7 @@
     <div class="col-md-8 col-md-offset-2">
       <div id="contact2">
 
-<h2>Sign up</h2>
+<h2>Regístrate</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
@@ -19,7 +19,7 @@
   </div>
 
   <div class="field">
-    <%= f.label :password %>
+    <%= f.label :contraseña %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
@@ -27,16 +27,17 @@
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
+    <%= f.label :confirma_tu_contraseña %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
-
+<br>
   <div class="actions">
-    <%= f.submit "Sign up", class: "button button_blue button_center" %>
+    <%= f.submit "Regístrate", class: "button button_blue button_center" %>
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+<p>Ya tienes cuenta?</p>
+<%= link_to "Inicia Sesión", new_user_registration_path %>
 
 </div>
 </div>
