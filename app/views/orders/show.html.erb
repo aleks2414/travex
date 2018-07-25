@@ -95,8 +95,8 @@
 							<tbody>
 								<tr>
 									<td><%= @order.hab_doble %></td>
-									<td><%=number_to_currency(@block.habitacion_doble)%> x/ habitación doble</td>
-									<td><%= @a= number_to_currency(@block.habitacion_doble * @order.hab_doble) %></td>
+									<td><%=number_to_currency(@block.habitacion_doble)%> x/ 2 personas en  habitación doble</td>
+									<td><%= @a= number_to_currency(@block.habitacion_doble * @order.hab_doble * 2) %></td>
 								</tr>
 
 								<tr>
@@ -107,8 +107,8 @@
 
 								<tr>
 									<td><%= @order.hab_triple%></td>
-									<td><%=number_to_currency(@block.habitacion_triple) %> x/ niño</td>
-									<td><%= @b= number_to_currency(@block.habitacion_triple * @order.hab_triple) %></td>
+									<td><%=number_to_currency(@block.habitacion_triple) %> x/ 3 personas en  habitación triple</td>
+									<td><%= @b= number_to_currency(@block.habitacion_triple * @order.hab_triple * 3) %></td>
 								</tr>
 
 								<tr>
@@ -120,8 +120,8 @@
 
 								<tr>
 									<td><%= @order.hab_cuadrupple%></td>
-									<td><%=number_to_currency(@block.habitacion_cuadruple) %> x/ niño</td>
-									<td><%= @b= number_to_currency(@block.habitacion_cuadruple * @order.hab_cuadrupple) %></td>
+									<td><%=number_to_currency(@block.habitacion_cuadruple) %> x/ 4 personas en  habitación cuádruple</td>
+									<td><%= @b= number_to_currency(@block.habitacion_cuadruple * @order.hab_cuadrupple * 4) %></td>
 								</tr>
 
 								<tr>
@@ -133,7 +133,7 @@
 
 								<tr>
 									<td><%= @order.menor_ex%></td>
-									<td><%=number_to_currency(@block.menor_extra) %> x/ niño</td>
+									<td><%=number_to_currency(@block.menor_extra) %> x/ menor extra</td>
 									<td><%= @b= number_to_currency(@block.menor_extra * @order.menor_ex) %></td>
 								</tr>
 

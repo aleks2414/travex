@@ -54,7 +54,7 @@
 	</div>
 
 
-  <div class="field">
+  <div class="field hidden">
     <%= f.label :total %>
     <%= f.number_field :total, id: "totalimus" %>
   </div>
@@ -153,7 +153,7 @@ $('#order_many_n').change(function() {
 $('#order_hab_doble').change(function() { 
 	var soup = $(this).val();
 	var noup = <%= @block.habitacion_doble %>;
-	var totalip3 = soup * noup;
+	var totalip3 = soup * noup *2;
 	document.getElementById('max_many3').innerHTML = soup;
 	document.getElementById('multiple3').innerHTML = totalip3;
 	var mex3 = parseInt(document.getElementById('multiple4').innerHTML) + parseInt(document.getElementById('multiple3').innerHTML) + parseInt(document.getElementById('multiple5').innerHTML) + parseInt(document.getElementById('multiple6').innerHTML);
@@ -167,7 +167,7 @@ $('#order_hab_doble').change(function() {
 $('#order_hab_triple').change(function() { 
 	var soup = $(this).val();
 	var noup = <%= @block.habitacion_triple %>;
-	var totalip4 = soup * noup;
+	var totalip4 = soup * noup* 3;
 	document.getElementById('max_many4').innerHTML = soup;
 	document.getElementById('multiple4').innerHTML = totalip4;
 	var mex4 = parseInt(document.getElementById('multiple4').innerHTML) + parseInt(document.getElementById('multiple3').innerHTML) + parseInt(document.getElementById('multiple5').innerHTML) + parseInt(document.getElementById('multiple6').innerHTML);
@@ -181,7 +181,7 @@ $('#order_hab_triple').change(function() {
 $('#order_hab_cuadrupple').change(function() { 
 	var soup = $(this).val();
 	var noup = <%= @block.habitacion_cuadruple %>;
-	var totalip5 = soup * noup;
+	var totalip5 = soup * noup * 4;
 	document.getElementById('max_many5').innerHTML = soup;
 	document.getElementById('multiple5').innerHTML = totalip5;
 	var mex5 = parseInt(document.getElementById('multiple4').innerHTML) + parseInt(document.getElementById('multiple3').innerHTML) + parseInt(document.getElementById('multiple5').innerHTML) + parseInt(document.getElementById('multiple6').innerHTML);

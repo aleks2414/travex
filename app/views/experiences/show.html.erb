@@ -16,6 +16,11 @@
         <p><%= @experience.descripcion.html_safe %></p>
 
         <h4><%= @experience.dias %></h4>
+        <p>
+        <% @blocks.each_with_index do |block, i| %>
+          <%= block.fecha_salida.strftime(" %b-%d-%Y") %>,
+        <% end %>
+        </p>
       </div>
     </div>
 
@@ -60,7 +65,9 @@
         <h4>Habitación triple: <%= number_to_currency block.habitacion_triple%></h4>
         <h4>Habitación cuádruple: <%= number_to_currency block.habitacion_cuadruple %></h4>
         <h4>Menor extra: <%= number_to_currency block.menor_extra %></h4>
+        <p>**Precios por persona en base a la ocupación seleccionada</p>
         <% end %>
+
 
         <% if block.orders.count == block.capacidad %>
           <button class="button button_grey button_block">Agotados</button>
