@@ -11,7 +11,9 @@ class PackagesController < ApplicationController
   # GET /packages/1
   # GET /packages/1.json
   def show
-    @block = Block.find(params[:block_id])
+     @block = Block.find(params[:block_id])
+     @rooms = @package.rooms
+    @room = Room.new 
   end
 
   # GET /packages/new

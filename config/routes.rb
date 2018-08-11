@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
-  resources :packages
+  
+  resources :packages do
+    resources :rooms
+  end 
   get 'orders/new'
 
   resources :blocks do 

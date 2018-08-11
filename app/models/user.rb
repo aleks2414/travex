@@ -6,6 +6,7 @@ class User < ApplicationRecord
   has_many :experiences
   has_many :orders, dependent: :destroy
   has_many :packages, dependent: :destroy
+  has_many :rooms, dependent: :destroy
 
   validates :name, presence: true
 

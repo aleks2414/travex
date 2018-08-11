@@ -6,11 +6,48 @@
 
     </div>
     <div class="col-md-5">
+
+<% if @package.rooms.count < @package.habitaciones %>
+
 <div id="contact2">
 		<h2 class="titulo">Reservar <%= @package.habitaciones %> habitacion(es)</h2>
 	<hr>
 
+<%= form_for [@package,@room] do |f| %>
+
+	<div class="row">
+		<div class="col-md-12">
+			<%= f.label :Tipo_de_habitación %> (<%= @package.rooms.count + 1 %>)
+			<%= f.select :tipo_habitacion, [["Habitación Doble"],["Habitación Triple"], ["Habitación Cuádruple"]], required: true%>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-4">
+			<%= f.label :adultos %>
+			<%= f.select :num_adultos, [["0", 0],["1", 1], ["2", 2], ["3", 3], ["4", 4]], required: true%>
+		</div>
+
+		<div class="col-md-4">
+			<%= f.label :niños %>
+			<%= f.select :num_menores, [["0", 0],["1", 1], ["2", 2]], required: true%>
+		</div>
+
+		<div class="col-md-4">
+			<%= f.label :De_0_2_años %>
+			<%= f.select :num_bebes, [["0", 0],["1", 1], ["2", 2]], required: true%>
+		</div>
+	</div>
+
+  <div class="actions">
+    <%= f.submit "Elegir", class: "button button_blue button_block" %>
+  </div>
+
+<% end %>
+
 </div>
+
+<% end %>
     </div>
   </div>
 </div>

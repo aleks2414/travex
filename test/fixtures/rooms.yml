@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tipo_habitacion: MyString
+  num_adultos: 1
+  num_menores: 1
+  num_bebes: 1
+  user: one
+  package: one
+
+two:
+  tipo_habitacion: MyString
+  num_adultos: 1
+  num_menores: 1
+  num_bebes: 1
+  user: two
+  package: two

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180811005153) do
+ActiveRecord::Schema.define(version: 20180811021254) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -106,6 +106,19 @@ ActiveRecord::Schema.define(version: 20180811005153) do
     t.index ["user_id"], name: "index_packages_on_user_id"
   end
 
+  create_table "rooms", force: :cascade do |t|
+    t.string "tipo_habitacion"
+    t.integer "num_adultos", default: 0
+    t.integer "num_menores", default: 0
+    t.integer "num_bebes", default: 0
+    t.bigint "user_id"
+    t.bigint "package_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["package_id"], name: "index_rooms_on_package_id"
+    t.index ["user_id"], name: "index_rooms_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -133,4 +146,6 @@ ActiveRecord::Schema.define(version: 20180811005153) do
   add_foreign_key "orders", "users"
   add_foreign_key "packages", "blocks"
   add_foreign_key "packages", "users"
+  add_foreign_key "rooms", "packages"
+  add_foreign_key "rooms", "users"
 end
