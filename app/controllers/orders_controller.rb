@@ -52,7 +52,7 @@ end
 
 	private
 	def order_params
-		params.require(:order).permit(:stripe_token, :block_id, :many, :many_n, :hab_doble, :hab_triple, :hab_cuadrupple, :menor_ex, :total )
+		params.require(:order).permit(:stripe_token, :block_id, :many, :many_n, :hab_doble, :hab_triple, :hab_cuadrupple, :menor_ex, :total, :mas_adultos, :mas_menores)
 	end
 end
 

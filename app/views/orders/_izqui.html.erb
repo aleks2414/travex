@@ -25,6 +25,25 @@
 <% else %>
 
 <div id="contact2">
+		<h2 class="titulo">Pasajeros</h2>
+	<hr>
+
+	<div class="row">
+		<div class="col-md-6">
+			<%= f.label :Cuántos_adultos %>
+			<%= f.select :mas_adultos, [["0", 0],["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5", 5], ["6", 6], ["7", 7], ["8", 8]], required: true%>
+		</div>
+
+		<div class="col-md-6">
+			<%= f.label :Cuántos_niños %>
+			<%= f.select :mas_menores, [["0", 0],["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5", 5], ["6", 6], ["7", 7], ["8", 8]], required: true%>
+		</div>
+	</div>
+
+
+</div>
+
+<div id="contact2">
 
 	<h2 class="titulo">Habitaciones</h2>
 	<hr>
@@ -32,24 +51,24 @@
 	<div class="row">
 		<div class="col-md-6">
 			<%= f.label :Habitación_doble %>
-			<%= f.select :hab_doble, [["0", 0],["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5", 5], ["6", 6], ["7", 7], ["8", 8]], required: true%>
+			<%= f.select :hab_doble, [["0", 0],["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5", 5]], required: true%>
 		</div>
 
 		<div class="col-md-6">
 			<%= f.label :Habitación_triple %>
-			<%= f.select :hab_triple, [["0", 0],["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5", 5], ["6", 6], ["7", 7], ["8", 8]], required: true%>
+			<%= f.select :hab_triple, [["0", 0],["1", 1], ["2", 2], ["3", 3], ["4", 4]], required: true%>
 		</div>
 	</div>
 
 	<div class="row">
 		<div class="col-md-6">
 			<%= f.label :Habitación_cuádruple %>
-			<%= f.select :hab_cuadrupple, [["0", 0],["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5", 5], ["6", 6], ["7", 7], ["8", 8]], required: true%>
+			<%= f.select :hab_cuadrupple, [["0", 0],["1", 1], ["2", 2], ["3", 3]], required: true%>
 		</div>
 
 		<div class="col-md-6">
 			<%= f.label :Menor_extra %>
-			<%= f.select :menor_ex, [["0", 0],["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5", 5], ["6", 6], ["7", 7], ["8", 8]], required: true%>
+			<%= f.select :menor_ex, [["0", 0],["1", 1]], required: true%>
 		</div>
 	</div>
 

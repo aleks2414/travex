@@ -7,7 +7,7 @@
   
 <div id="show_ex">
   <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-7">
       <div id="ex_iz">
         <h1><%= @experience.nombre %></h1>
         <h3> <span class="fa fa-map-marker"> </span> <%= @experience.lugar %></h3>
@@ -24,7 +24,7 @@
       </div>
     </div>
 
-    <div class="col-md-4">
+    <div class="col-md-5">
       <div id="ex_der">
         <div class="owl-carousel">
             <% @images.each do |image| %>
@@ -40,10 +40,10 @@
 
 <div id="show_ex">
   <div class="row">
-  <div class="col-md-8">
+  <div class="col-md-7">
 <%= render 'tabs' %>
   </div>
-  <div class="col-md-4">
+  <div class="col-md-5">
     <div id="paquetes">
       <h2 class="center">Fechas Disponibles</h2>
       <h2 class="center"><%= @experience.nombre %></h2>
@@ -69,14 +69,18 @@
         <% end %>
 
 
-        <% if block.orders.count == block.capacidad %>
-          <button class="button button_grey button_block">Agotados</button>
-        
-        <% else %>
+
+
+        <%  if block.experience.dias == "1 día" %>
         <%= link_to new_block_order_path(block), data: { no_turbolink: true } do %>
             <button class="button button_blue button_block">Reservar</button>
         <% end %>
 
+        <% else %>
+
+        <%= link_to new_block_package_path(block), data: { no_turbolink: true } do %>
+            <button class="button button_blue button_block">Reservar</button>
+        <% end %>
         <% end %>
 
       </div>
@@ -103,7 +107,7 @@
       <div id="nume_1">
         <%= image_tag "uno.png" %>
         
-        <p>Elige la fecha y hora que más te acomoda</p>
+        <p class="center">Elige la fecha y hora que más te acomoda</p>
       </div>
     </div>
 
@@ -111,7 +115,7 @@
       <div id="nume_1">
         <%= image_tag "dos.png" %>
         
-        <p>Selecciona el número de personas que van</p>
+        <p class="center">Selecciona el número de personas que van</p>
       </div>
     </div>
 
@@ -119,7 +123,7 @@
       <div id="nume_1">
         <%= image_tag "tres.png" %>
         
-        <p>Recibe la confirmación del viaje</p>
+        <p class="center">Recibe la confirmación del viaje</p>
       </div>
     </div>
   </div>

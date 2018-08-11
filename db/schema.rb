@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180724022858) do
+ActiveRecord::Schema.define(version: 20180811005153) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -90,8 +90,20 @@ ActiveRecord::Schema.define(version: 20180724022858) do
     t.integer "hab_cuadrupple", default: 0
     t.integer "menor_ex", default: 0
     t.float "total", default: 0.0
+    t.float "mas_adultos", default: 0.0
+    t.float "mas_menores", default: 0.0
     t.index ["block_id"], name: "index_orders_on_block_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
+  create_table "packages", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "block_id"
+    t.integer "habitaciones", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["block_id"], name: "index_packages_on_block_id"
+    t.index ["user_id"], name: "index_packages_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -119,4 +131,6 @@ ActiveRecord::Schema.define(version: 20180724022858) do
   add_foreign_key "images", "experiences"
   add_foreign_key "orders", "blocks"
   add_foreign_key "orders", "users"
+  add_foreign_key "packages", "blocks"
+  add_foreign_key "packages", "users"
 end

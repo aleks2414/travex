@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
 
+  resources :packages
   get 'orders/new'
 
   resources :blocks do 
   	resources :orders
+    resources :packages
   end
   
   resources :images
@@ -18,6 +20,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   resources :orders, only: [:index]
+  resources :packages, only: [:index]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

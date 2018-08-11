@@ -5,6 +5,7 @@ class User < ApplicationRecord
   :recoverable, :rememberable, :trackable, :validatable
   has_many :experiences
   has_many :orders, dependent: :destroy
+  has_many :packages, dependent: :destroy
 
   validates :name, presence: true
 

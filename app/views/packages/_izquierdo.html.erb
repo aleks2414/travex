@@ -1,0 +1,78 @@
+<div id="contact2">
+	<h2 class="titulo">Información General</h2>
+	<hr>
+
+	<div id="im">
+	<%= image_tag @block.experience.foto %>
+	</div>
+	<br>
+	<h5 class="center"><%=@block.experience.nombre %></h5>
+
+	<p><%=@block.experience.descripcion.html_safe %></p>
+
+
+
+<div id="table">
+<div class="content table-responsive table-full-width">
+      <table class="table table-hover table-striped">
+        <thead>
+					
+					<th></th>
+					<th></th>
+        </thead>
+        <tbody>
+          <tr>
+          	
+					<td> Precio por persona en habitación doble</td>
+					<td><%=number_to_currency @block.habitacion_doble %></span> </td>
+          </tr>
+
+          <tr>
+					
+					<td></td>
+					<td></td>
+          </tr>
+
+          <tr>
+          	
+					<td> Precio por persona en  habitación triple</td>
+					<td><%=number_to_currency @block.habitacion_triple %></span></td>
+          </tr>
+
+          <tr>
+					
+					<td></td>
+					<td></td>
+          </tr>
+
+          <tr>
+          	
+					<td> Precio por persona en  habitación cuádruple</td>
+					<td><%=number_to_currency @block.habitacion_cuadruple %></span></td>
+          </tr>
+
+
+          <tr>
+					
+					<td></td>
+					<td></td>
+          </tr>
+
+          <tr>
+          	
+					<td> Precio por menor extra</td>
+					<td><%=number_to_currency @block.menor_extra %></span></td>
+          </tr>
+
+          <tr>
+					
+					<td></td>
+					<td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+</div>
+
+
+</div>
