@@ -11,13 +11,14 @@
 
 <div id="contact2">
 		<h2 class="titulo">Reservar <%= @package.habitaciones %> habitacion(es)</h2>
+		<h3 class="center">(<%= @package.rooms.count + 1 %> de <%= @package.habitaciones %>)</h3>
 	<hr>
 
 <%= form_for [@package,@room] do |f| %>
 
 	<div class="row">
 		<div class="col-md-12">
-			<%= f.label :Tipo_de_habitación %> (<%= @package.rooms.count + 1 %>)
+			<%= f.label :Tipo_de_habitación %>
 			<%= f.select :tipo_habitacion, [["Habitación Doble"],["Habitación Triple"], ["Habitación Cuádruple"]], required: true%>
 		</div>
 	</div>
@@ -30,12 +31,12 @@
 
 		<div class="col-md-4">
 			<%= f.label :niños %>
-			<%= f.select :num_menores, [["0", 0],["1", 1], ["2", 2]], required: true%>
+			<%= f.select :num_menores, [["0", 0],["1", 1]], required: true%>
 		</div>
 
 		<div class="col-md-4">
 			<%= f.label :De_0_2_años %>
-			<%= f.select :num_bebes, [["0", 0],["1", 1], ["2", 2]], required: true%>
+			<%= f.select :num_bebes, [["0", 0],["1", 1]], required: true%>
 		</div>
 	</div>
 
@@ -46,8 +47,29 @@
 <% end %>
 
 </div>
-
 <% end %>
+
+<div class="row">
+<% @rooms.each_with_index do |room, i| %>
+<div class="col-md-6">
+<div id="contact2">
+	<h6 class="mixin"><%= i+1%>: <%=room.tipo_habitacion %></h6> <br>
+	<h5 class="wonder"><span class="time fas fa-male"></span><%= room.num_adultos %></h5>
+	<h5 class="wonder"><span class="time fas fa-user-astronaut"></span><%= room.num_menores %></h5>
+	<h5 class="wonder"><span class="time far fa-smile"></span><%= room.num_bebes %></h5>
+<hr>
+	<%= link_to package_room_path(room.package, room), method: :delete, data: { confirm: 'Are you sure?' } do %>
+	<span class="time fas fa-times"></span>
+	<% end %>
+</div>
+</div>
+<% end %>
+</div>
+
+
+<%= render 'payment' %>
+
+
     </div>
   </div>
 </div>

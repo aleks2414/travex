@@ -85,76 +85,76 @@
 				<% else %>
 
 				<div id="table">
-					<div class="content table-responsive table-full-width">
-						<table class="table table-hover table-striped">
-							<thead>
-								<th></th>
-								<th></th>
-								<th></th>
-							</thead>
-							<tbody>
-								<tr>
-									<td><%= @order.hab_doble %></td>
-									<td><%=number_to_currency(@block.habitacion_doble)%> x/ 2 personas en  habitación doble</td>
-									<td><%= @a= number_to_currency(@block.habitacion_doble * @order.hab_doble * 2) %></td>
-								</tr>
+<div class="content table-responsive table-full-width">
+      <table class="table table-hover table-striped">
+        <thead>
+					<th></th>
+					<th></th>
+					<th></th>
+        </thead>
+        <tbody>
+          <tr>
+          	<td><span id="max_many3"></span></td>
+					<td><%=number_to_currency(@doble1 = @block.habitacion_doble)%> x <%= @doble2 = @package.rooms.select{|c| c.tipo_habitacion == 'Habitación Doble'}.map(&:num_adultos).sum %> persona(s) en habitación doble</td>
 
-								<tr>
-									<td></td>
-									<td></td>
-									<td></td>
-								</tr>
+					<td><%= number_to_currency @dobletotal = @doble1 * @doble2 %></td>
+          </tr>
 
-								<tr>
-									<td><%= @order.hab_triple%></td>
-									<td><%=number_to_currency(@block.habitacion_triple) %> x/ 3 personas en  habitación triple</td>
-									<td><%= @b= number_to_currency(@block.habitacion_triple * @order.hab_triple * 3) %></td>
-								</tr>
+          <tr>
+					<td></td>
+					<td></td>
+					<td></td>
+          </tr>
 
-								<tr>
-									<td></td>
-									<td></td>
-									<td></td>
-								</tr>
+          <tr>
+          	<td><span id="max_many4"></span></td>
+					<td><%=number_to_currency(@triple1 = @block.habitacion_triple) %> x <%= @triple2 = @package.rooms.select{|c| c.tipo_habitacion == 'Habitación Triple'}.map(&:num_adultos).sum %> persona(s) en  habitación triple</td>
 
+					<td><%=number_to_currency  @tripletotal = @triple1 * @triple2 %></td>
+          </tr>
 
-								<tr>
-									<td><%= @order.hab_cuadrupple%></td>
-									<td><%=number_to_currency(@block.habitacion_cuadruple) %> x/ 4 personas en  habitación cuádruple</td>
-									<td><%= @b= number_to_currency(@block.habitacion_cuadruple * @order.hab_cuadrupple * 4) %></td>
-								</tr>
+          <tr>
+					<td></td>
+					<td></td>
+					<td></td>
+          </tr>
 
-								<tr>
-									<td></td>
-									<td></td>
-									<td></td>
-								</tr>
+          <tr>
+          	<td><span id="max_many5"></span></td>
+					<td><%=number_to_currency(@cuad1 = @block.habitacion_cuadruple) %> x <%= @cuad2 = @package.rooms.select{|c| c.tipo_habitacion == 'Habitación Cuádruple'}.map(&:num_adultos).sum %> persona(s) en  habitación cuádruple</td>
+
+					<td><%= number_to_currency @cuadtotal = @cuad1 * @cuad2 %></td>
+          </tr>
 
 
-								<tr>
-									<td><%= @order.menor_ex%></td>
-									<td><%=number_to_currency(@block.menor_extra) %> x/ menor extra</td>
-									<td><%= @b= number_to_currency(@block.menor_extra * @order.menor_ex) %></td>
-								</tr>
+          <tr>
+					<td></td>
+					<td></td>
+					<td></td>
+          </tr>
 
-								<tr>
-									<td></td>
-									<td></td>
-									<td></td>
-								</tr>
+          <tr>
+          	<td><span id="max_many6"></span></td>
+					<td><%=number_to_currency(@men1= @block.menor_extra) %> x <%= @men2 = @package.rooms.map(&:num_menores).sum %> menor(es) extra</td>
 
+					<td><%= number_to_currency @mentotal = @men1 * @men2 %></td>
+          </tr>
 
+          <tr>
+					<td></td>
+					<td></td>
+					<td></td>
+          </tr>
 
-								<tr>
-									<td></td>
-									<td></td>
-									<td>Total: <%= number_to_currency @order.total%></td>
-
-								</tr>
-							</tbody>
-						</table>
-					</div>
-				</div>
+          <tr>
+					<td></td>
+					<td>Total:</td>
+					<td><%=  number_to_currency @grantotal =  @dobletotal + @tripletotal + @cuadtotal + @mentotal %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+</div>	
 
 
 				<% end %>

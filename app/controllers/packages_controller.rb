@@ -13,7 +13,8 @@ class PackagesController < ApplicationController
   def show
      @block = Block.find(params[:block_id])
      @rooms = @package.rooms
-    @room = Room.new 
+     @room = Room.new 
+     @order = @block.orders.new
   end
 
   # GET /packages/new

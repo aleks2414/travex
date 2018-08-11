@@ -1,0 +1,86 @@
+<%= form_for [@block, @order], id: "new_order" do |f| %>
+<span class="payment-errors"></span>
+<div id="contact2">
+
+
+
+
+
+	<br>
+	<div class='card-wrapper'></div>
+	<br>
+
+	<div class="row">
+		<div class="col-md-6">
+			<%= f.label :número_de_tarjeta %>
+			<input type="text" name="number" data-stripe= "number" size="16" id= "tar" >
+		</div>
+
+		<div class="col-md-6">
+			<%= f.label :nombre_de_la_tarjeta %>
+			<input type="text" name="first-name" data-stripe= "name"/>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-xs-9">
+			<%= f.label :_fecha_de_expiración %>
+			<input type="text" name="expiry"/ id="expiry2">
+		</div>
+
+		<div class="col-xs-3">
+			<%= f.label :cvc %>
+			<input type="text" name="cvc" data-stripe= "cvc" size="4"/>
+		</div>
+	</div>
+
+	<input type="text" size="2" data-stripe="exp-month" id="exo_month" class="hidden" />
+	<input type="text" size="4" data-stripe="exp-year" id="exo_year" class="hidden" />
+
+	<button type="submit" class="button button_blue button_block">Pagar Ahora <%= number_to_currency @grantotal %></button>
+
+  <div class="field">
+    <%= f.label :total %>
+    <%= f.number_field :total, :value => @grantotal %>
+  </div>
+
+</div>
+<% end %>
+
+
+
+
+
+
+
+<script>
+  var card = new Card({
+    form: 'form',
+    container: '.card-wrapper',
+
+    formSelectors: {
+      nameInput: 'input[name="first-name"]'
+    },
+
+    placeholders: {
+      number: '**** **** **** ****',
+      name: 'Bruno Diaz',
+      expiry: '**/****',
+      cvc: '***'
+    }
+  });
+
+  
+
+  $("#expiry2").keyup(function(){
+    var firstChar = $('#expiry2').val().substr(0, 2);
+    document.getElementById('exo_month').value = parseInt(firstChar);
+  });
+
+  $("#expiry2").keyup(function(){
+    var firstChar = $('#expiry2').val().substr(4, 6);
+    document.getElementById('exo_year').value = parseInt(firstChar);
+  });
+
+
+</script>

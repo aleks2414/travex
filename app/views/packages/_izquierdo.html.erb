@@ -16,63 +16,73 @@
 <div class="content table-responsive table-full-width">
       <table class="table table-hover table-striped">
         <thead>
-					
+					<th></th>
 					<th></th>
 					<th></th>
         </thead>
         <tbody>
           <tr>
-          	
-					<td> Precio por persona en habitación doble</td>
-					<td><%=number_to_currency @block.habitacion_doble %></span> </td>
+          	<td><span id="max_many3"></span></td>
+					<td><%=number_to_currency(@doble1 = @block.habitacion_doble)%> x <%= @doble2 = @package.rooms.select{|c| c.tipo_habitacion == 'Habitación Doble'}.map(&:num_adultos).sum %> persona(s) en habitación doble</td>
+
+					<td><%= number_to_currency @dobletotal = @doble1 * @doble2 %></td>
           </tr>
 
           <tr>
-					
 					<td></td>
-					<td></td>
-          </tr>
-
-          <tr>
-          	
-					<td> Precio por persona en  habitación triple</td>
-					<td><%=number_to_currency @block.habitacion_triple %></span></td>
-          </tr>
-
-          <tr>
-					
 					<td></td>
 					<td></td>
           </tr>
 
           <tr>
-          	
-					<td> Precio por persona en  habitación cuádruple</td>
-					<td><%=number_to_currency @block.habitacion_cuadruple %></span></td>
+          	<td><span id="max_many4"></span></td>
+					<td><%=number_to_currency(@triple1 = @block.habitacion_triple) %> x <%= @triple2 = @package.rooms.select{|c| c.tipo_habitacion == 'Habitación Triple'}.map(&:num_adultos).sum %> persona(s) en  habitación triple</td>
+
+					<td><%=number_to_currency  @tripletotal = @triple1 * @triple2 %></td>
+          </tr>
+
+          <tr>
+					<td></td>
+					<td></td>
+					<td></td>
+          </tr>
+
+          <tr>
+          	<td><span id="max_many5"></span></td>
+					<td><%=number_to_currency(@cuad1 = @block.habitacion_cuadruple) %> x <%= @cuad2 = @package.rooms.select{|c| c.tipo_habitacion == 'Habitación Cuádruple'}.map(&:num_adultos).sum %> persona(s) en  habitación cuádruple</td>
+
+					<td><%= number_to_currency @cuadtotal = @cuad1 * @cuad2 %></td>
           </tr>
 
 
           <tr>
-					
+					<td></td>
 					<td></td>
 					<td></td>
           </tr>
 
           <tr>
-          	
-					<td> Precio por menor extra</td>
-					<td><%=number_to_currency @block.menor_extra %></span></td>
+          	<td><span id="max_many6"></span></td>
+					<td><%=number_to_currency(@men1= @block.menor_extra) %> x <%= @men2 = @package.rooms.map(&:num_menores).sum %> menor(es) extra</td>
+
+					<td><%= number_to_currency @mentotal = @men1 * @men2 %></td>
           </tr>
 
           <tr>
-					
 					<td></td>
 					<td></td>
+					<td></td>
+          </tr>
+
+          <tr>
+					<td></td>
+					<td>Total:</td>
+					<td><%=  number_to_currency @grantotal =  @dobletotal + @tripletotal + @cuadtotal + @mentotal %></td>
           </tr>
         </tbody>
       </table>
     </div>
-</div>
+</div>	
 
 
 </div>
