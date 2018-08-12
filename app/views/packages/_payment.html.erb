@@ -39,9 +39,29 @@
 
 	<button type="submit" class="button button_blue button_block">Pagar Ahora <%= number_to_currency @grantotal %></button>
 
-  <div class="field">
+  <div class="field hidden">
     <%= f.label :total %>
     <%= f.number_field :total, :value => @grantotal %>
+  </div>
+
+  <div class="field hidden">
+    <%= f.label :hd %>
+    <%= f.number_field :hab_doble, :value => @doble2 %>
+  </div>
+
+  <div class="field hidden">
+    <%= f.label :ht %>
+    <%= f.number_field :hab_triple, :value => @triple2 %>
+  </div>
+
+  <div class="field hidden">
+    <%= f.label :hc %>
+    <%= f.number_field :hab_cuadrupple, :value => @cuad2 %>
+  </div>
+
+  <div class="field hidden">
+    <%= f.label :men %>
+    <%= f.number_field :menor_ex, :value => @men2 %>
   </div>
 
 </div>

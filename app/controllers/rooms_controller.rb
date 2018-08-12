@@ -34,7 +34,7 @@ class RoomsController < ApplicationController
         format.html { redirect_to block_package_path(@package.block, @package), notice: 'Room was successfully created.' }
         format.json { render :show, status: :created, location: @room }
       else
-        format.html { render :new }
+        format.html { redirect_to block_package_path(@package.block, @package), notice: 'No puedes exceder el límite de adultos por habitación' }
         format.json { render json: @room.errors, status: :unprocessable_entity }
       end
     end

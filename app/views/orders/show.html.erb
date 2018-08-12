@@ -95,7 +95,7 @@
         <tbody>
           <tr>
           	<td><span id="max_many3"></span></td>
-					<td><%=number_to_currency(@doble1 = @block.habitacion_doble)%> x <%= @doble2 = @package.rooms.select{|c| c.tipo_habitacion == 'Habitación Doble'}.map(&:num_adultos).sum %> persona(s) en habitación doble</td>
+					<td><%=number_to_currency(@doble1 = @block.habitacion_doble)%> x <%= @doble2 = @order.hab_doble%> persona(s) en habitación doble</td>
 
 					<td><%= number_to_currency @dobletotal = @doble1 * @doble2 %></td>
           </tr>
@@ -108,7 +108,7 @@
 
           <tr>
           	<td><span id="max_many4"></span></td>
-					<td><%=number_to_currency(@triple1 = @block.habitacion_triple) %> x <%= @triple2 = @package.rooms.select{|c| c.tipo_habitacion == 'Habitación Triple'}.map(&:num_adultos).sum %> persona(s) en  habitación triple</td>
+					<td><%=number_to_currency(@triple1 = @block.habitacion_triple) %> x <%= @triple2 = @order.hab_triple %> persona(s) en  habitación triple</td>
 
 					<td><%=number_to_currency  @tripletotal = @triple1 * @triple2 %></td>
           </tr>
@@ -121,7 +121,7 @@
 
           <tr>
           	<td><span id="max_many5"></span></td>
-					<td><%=number_to_currency(@cuad1 = @block.habitacion_cuadruple) %> x <%= @cuad2 = @package.rooms.select{|c| c.tipo_habitacion == 'Habitación Cuádruple'}.map(&:num_adultos).sum %> persona(s) en  habitación cuádruple</td>
+					<td><%=number_to_currency(@cuad1 = @block.habitacion_cuadruple) %> x <%= @cuad2 = @order.hab_cuadrupple %> persona(s) en  habitación cuádruple</td>
 
 					<td><%= number_to_currency @cuadtotal = @cuad1 * @cuad2 %></td>
           </tr>
@@ -135,7 +135,7 @@
 
           <tr>
           	<td><span id="max_many6"></span></td>
-					<td><%=number_to_currency(@men1= @block.menor_extra) %> x <%= @men2 = @package.rooms.map(&:num_menores).sum %> menor(es) extra</td>
+					<td><%=number_to_currency(@men1= @block.menor_extra) %> x <%= @men2 = @order.menor_ex %> menor(es) extra</td>
 
 					<td><%= number_to_currency @mentotal = @men1 * @men2 %></td>
           </tr>
