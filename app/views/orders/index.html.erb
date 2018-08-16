@@ -37,7 +37,7 @@
 						<td><%= order.hab_triple%></td>
 						<td><%= order.hab_cuadrupple%></td>
 						<td><%= order.menor_ex%></td>
-						<td><%= number_to_currency order.total%></td>
+						<td><%= number_to_currency ((order.block.precio_adulto)* order.many)+((order.block.precio_nino)* order.many_n)+ order.total%></td>
             <td><%= link_to 'Ver más', block_order_path(order.block, order) %></td>
             <td><%= link_to 'Editar', edit_block_order_path(order.block, order) %></td>
             <td><%= link_to 'Eliminar', block_order_path(order.block, order), method: :delete, data: { confirm: 'Are you sure?' } %></td>
