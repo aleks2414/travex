@@ -2,7 +2,8 @@
 	<div class="row">
 		<div class="col-md-6 col-md-offset-3">
 			<div id="contact2">
-				<h2><%=@order.user.name%></h2>
+				<h2><%=@order.nombre%></h2>
+				<p class="center"><%=@order.email%></p>
 				<h2>Gracias por Reservar <br>	"<%= @order.block.experience.nombre %>" </h2>
 				<div id="im">
 					<%= image_tag @block.experience.foto %>

@@ -10,6 +10,22 @@
 	<div class='card-wrapper'></div>
 	<br>
 
+<div class="row">
+    <div class="col-md-6">
+      <div class="field">
+        <%= f.label :nombre %>
+        <%= f.text_field :nombre, required:true %>
+      </div>
+  </div>
+
+  <div class="col-md-6">
+      <div class="field">
+        <%= f.label :email %>
+        <%= f.email_field :email, required:true %>
+      </div>
+  </div>  
+</div>
+
 	<div class="row">
 		<div class="col-md-6">
 			<%= f.label :número_de_tarjeta %>
@@ -21,6 +37,8 @@
 			<input type="text" name="first-name" data-stripe= "name"/>
 		</div>
 	</div>
+
+
 
 	<div class="row">
 		<div class="col-xs-9">

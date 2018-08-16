@@ -1,6 +1,5 @@
 class PackagesController < ApplicationController
   before_action :set_package, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:show, :new]
 
   # GET /packages
   # GET /packages.json
@@ -32,7 +31,6 @@ class PackagesController < ApplicationController
   def create
   @block = Block.find(params[:block_id])
   @package = @block.packages.new(package_params)
-  @package.user_id = current_user.id
 
     respond_to do |format|
       if @package.save

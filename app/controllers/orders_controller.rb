@@ -1,6 +1,5 @@
 # app/controllers/orders_controller.rb
 class OrdersController < ApplicationController
-	before_action :authenticate_user!, except: [:show]
 	
 	def new
 		@block = Block.find(params[:block_id])
@@ -22,7 +21,6 @@ def create
 
   @block = Block.find(params[:block_id])
   @order = @block.orders.new(order_params)
-  @order.user_id = current_user.id
 
   if @order.save
 
@@ -52,7 +50,7 @@ end
 
 	private
 	def order_params
-		params.require(:order).permit(:stripe_token, :block_id, :many, :many_n, :hab_doble, :hab_triple, :hab_cuadrupple, :menor_ex, :total, :mas_adultos, :mas_menores)
+		params.require(:order).permit(:stripe_token, :block_id, :many, :many_n, :hab_doble, :hab_triple, :hab_cuadrupple, :menor_ex, :total, :mas_adultos, :mas_menores, :nombre, :email)
 	end
 end
 

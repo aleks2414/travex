@@ -26,7 +26,6 @@ class RoomsController < ApplicationController
   # POST /rooms.json
   def create
     @room = Room.new(room_params)
-    @room.user_id = current_user.id
     @room.package_id = @package.id
 
     respond_to do |format|

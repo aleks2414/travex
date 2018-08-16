@@ -20,7 +20,11 @@
 			<%= f.select :many_n, [["0", 0],["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5", 5], ["6", 6], ["7", 7], ["8", 8]], required: true%>
 		</div>
 	</div>
+
+
 </div>
+
+
 
 <% else %>
 
@@ -73,6 +77,7 @@
 	</div>
 
 
+
   <div class="field hidden">
     <%= f.label :total %>
     <%= f.number_field :total, id: "totalimus" %>
@@ -88,6 +93,22 @@
 	<br>
 	<div class='card-wrapper'></div>
 	<br>
+
+<div class="row">
+    <div class="col-md-6">
+      <div class="field">
+        <%= f.label :nombre %>
+        <%= f.text_field :nombre, required:true %>
+      </div>
+  </div>
+
+  <div class="col-md-6">
+      <div class="field">
+        <%= f.label :email %>
+        <%= f.email_field :email, required:true %>
+      </div>
+  </div>  
+</div>
 
 	<div class="row">
 		<div class="col-md-6">

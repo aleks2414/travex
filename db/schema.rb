@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180811021254) do
+ActiveRecord::Schema.define(version: 20180816130407) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -92,7 +92,11 @@ ActiveRecord::Schema.define(version: 20180811021254) do
     t.float "total", default: 0.0
     t.float "mas_adultos", default: 0.0
     t.float "mas_menores", default: 0.0
+    t.bigint "package_id"
+    t.string "nombre"
+    t.string "email"
     t.index ["block_id"], name: "index_orders_on_block_id"
+    t.index ["package_id"], name: "index_orders_on_package_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
@@ -143,6 +147,7 @@ ActiveRecord::Schema.define(version: 20180811021254) do
   add_foreign_key "experiences", "users"
   add_foreign_key "images", "experiences"
   add_foreign_key "orders", "blocks"
+  add_foreign_key "orders", "packages"
   add_foreign_key "orders", "users"
   add_foreign_key "packages", "blocks"
   add_foreign_key "packages", "users"
