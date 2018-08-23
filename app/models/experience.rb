@@ -5,7 +5,7 @@ class Experience < ApplicationRecord
   accepts_nested_attributes_for :images
 
   has_many :blocks, dependent: :destroy
-  accepts_nested_attributes_for :blocks, :reject_if => lambda { |a| a[:fecha_salida].blank? }, :allow_destroy => true
+  accepts_nested_attributes_for :blocks, :reject_if => lambda { |a| a[:lugar_salida].blank? }, :allow_destroy => true
   extend FriendlyId
   friendly_id :nombre, use: :slugged
 

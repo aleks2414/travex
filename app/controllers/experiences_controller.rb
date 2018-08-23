@@ -115,6 +115,6 @@ class ExperiencesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def experience_params
-      params.require(:experience).permit(:disponible, :nombre, :lugar, :categoria, :dias, :foto, :slug, :user_id, :incluye, :itinerario, :que_plan, :recomendaciones, :address, :latitude, :longitude, :descripcion, :politics, images_attributes: [:id, :experience_id, :image2], blocks_attributes: [:id, :experience_id, :fecha_salida, :lugar_salida, :hora_salida, :fecha_regreso, :precio_adulto, :precio_nino, :capacidad, :habitacion_doble, :habitacion_triple, :habitacion_cuadruple, :menor_extra])
+      params.require(:experience).permit(:disponible, :nombre, :lugar, :categoria, :dias, :foto, :slug, :user_id, :incluye, :itinerario, :que_plan, :recomendaciones, :address, :latitude, :longitude, :descripcion, :politics, images_attributes: [:id, :experience_id, :image2], blocks_attributes: [:id, :experience_id, :fecha_salida, :lugar_salida, :hora_salida, :fecha_regreso, :precio_adulto, :precio_nino, :capacidad, :habitacion_doble, :habitacion_triple, :habitacion_cuadruple, :menor_extra, :_destroy])
     end
   end
