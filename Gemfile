@@ -40,7 +40,7 @@ gem "fog-aws"
 gem 'meta-tags'
 gem "mini_magick"
 gem 'rails_12factor', group: :production
-gem 'owlcarousel-rails'
+gem 'owlcarousel-rails', '~> 1.1.3.3'
 gem 'mail_form'
 gem 'geocoder'
 gem "cocoon"
