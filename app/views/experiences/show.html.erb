@@ -13,7 +13,7 @@
         <h3> <span class="fa fa-map-marker"> </span> <%= @experience.lugar %></h3>
         <h3> <span class="fa fa-map-marker"> </span> <%= @experience.categoria %></h3>
 
-        <p><%= @experience.descripcion.html_safe %></p>
+        <p><%= simple_format @experience.descripcion %></p>
 
         <h4><%= @experience.dias %></h4>
         <p>

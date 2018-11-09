@@ -8,13 +8,13 @@
 <div id="London" class="tabcontent">
 
   <h3>¿Cuál es el plan?</h3>
-  <p><%= @experience.que_plan.html_safe %></p>
+  <p><%= simple_format @experience.que_plan %></p>
 
   <h3>¿Qué incluye?</h3>
-  <p><%= @experience.incluye.html_safe %></p>
+  <p><%= simple_format @experience.incluye %></p>
 
   <h3>Itinerario</h3>
-  <p><%= @experience.itinerario.html_safe %></p>
+  <p><%= simple_format @experience.itinerario %></p>
 
 
   <h3>Ubicación:</h3>
@@ -24,7 +24,7 @@
 
 <div id="Paris" class="tabcontent">
   <h3>Recomendaciones:</h3>
-  <p><%= @experience.recomendaciones.html_safe %></p> 
+  <p><%= simple_format @experience.recomendaciones %></p> 
 </div>
 
 <div id="Tokyo" class="tabcontent">
