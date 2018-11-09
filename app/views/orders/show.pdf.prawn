@@ -2,7 +2,7 @@ prawn_document() do |pdf|
   logo = "#{Rails.root}/app/assets/images/logo2.jpg"
 	pdf.image logo, width: 120, position: :center
 	pdf.move_down 60
-	pdf.text "Atn. #{@order.user.name}"
+	pdf.text "Atn. #{@order.block.experience.nombre}"
 	pdf.move_down 20
 	pdf.text "Gracias por reservar con nostros la experiencia  #{@order.block.experience.nombre}.", size: 10
 	pdf.text "Para Inter Travex será un honor tenerte a ti y tu familia con nosotros viviendo esta gran aventura.", size: 10
@@ -64,8 +64,10 @@ data = [
  ["", ""],
  ["", ""]
  ]
-
 pdf.table data, :position => :center, :width => 550, :row_colors => ["FFFFFF", "ffffff"], :column_widths => [275, 275], :cell_style => { :font => "Helvetica", :size => 10, :border_color => "ffffff" }
+
+if @block.experience.dias == "1 día" 
+
 
 pdf.text "ADULTOS: (#{@order.many})", style: :bold
 pdf.move_down 10
@@ -101,5 +103,85 @@ pdf.table data, :position => :center, :width => 500, :row_colors => ["FFFFFF", "
  ]
 pdf.table data, :position => :center, :width => 500, :row_colors => ["FFFFFF", "ffffff"], :column_widths => [125, 125, 125, 125], :cell_style => { :font => "Helvetica", :size => 10, :border_color => "f3f3f3", :height => 15 }
 end
+
+else
+
+
+
+
+pdf.text "HABITACIÓN DOBLE: (#{@order.hab_doble})", style: :bold
+pdf.move_down 10
+
+	# aqui
+data = [ 
+ ["Nombre", "Edad", "Teléfono", "Correo"]
+ ]
+pdf.table data, :position => :center, :width => 500, :row_colors => ["FFFFFF", "ffffff"], :column_widths => [125, 125, 125, 125], :cell_style => { :font => "Helvetica", :size => 10, :border_color => "f3f3f3" }
+
+@order.hab_doble.times do |time|
+	data = [ 
+ ["", "", "", ""]
+ ]
+pdf.table data, :position => :center, :width => 500, :row_colors => ["FFFFFF", "ffffff"], :column_widths => [125, 125, 125, 125], :cell_style => { :font => "Helvetica", :size => 10, :border_color => "f3f3f3", :height => 15 }
+end
+
+pdf.move_down 30
+# nninos
+
+pdf.text "HABITACIÓN TRIPLE: (#{@order.hab_triple})", style: :bold
+pdf.move_down 10
+
+	# aqui
+data = [ 
+ ["Nombre", "Edad", "Teléfono", "Correo"]
+ ]
+pdf.table data, :position => :center, :width => 500, :row_colors => ["FFFFFF", "ffffff"], :column_widths => [125, 125, 125, 125], :cell_style => { :font => "Helvetica", :size => 10, :border_color => "f3f3f3" }
+
+@order.hab_triple.times do |time|
+	data = [ 
+ ["", "", "", ""]
+ ]
+pdf.table data, :position => :center, :width => 500, :row_colors => ["FFFFFF", "ffffff"], :column_widths => [125, 125, 125, 125], :cell_style => { :font => "Helvetica", :size => 10, :border_color => "f3f3f3", :height => 15 }
+end
+
+pdf.move_down 30
+
+pdf.text "HABITACIÓN CUÁDRUPLE: (#{@order.hab_cuadrupple})", style: :bold
+pdf.move_down 10
+
+	# aqui
+data = [ 
+ ["Nombre", "Edad", "Teléfono", "Correo"]
+ ]
+pdf.table data, :position => :center, :width => 500, :row_colors => ["FFFFFF", "ffffff"], :column_widths => [125, 125, 125, 125], :cell_style => { :font => "Helvetica", :size => 10, :border_color => "f3f3f3" }
+
+@order.hab_cuadrupple.times do |time|
+	data = [ 
+ ["", "", "", ""]
+ ]
+pdf.table data, :position => :center, :width => 500, :row_colors => ["FFFFFF", "ffffff"], :column_widths => [125, 125, 125, 125], :cell_style => { :font => "Helvetica", :size => 10, :border_color => "f3f3f3", :height => 15 }
+end
+
+pdf.move_down 30
+
+
+pdf.text "MENOR EXTRA: (#{@order.menor_ex})", style: :bold
+pdf.move_down 10
+
+	# aqui
+data = [ 
+ ["Nombre", "Edad", "Teléfono", "Correo"]
+ ]
+pdf.table data, :position => :center, :width => 500, :row_colors => ["FFFFFF", "ffffff"], :column_widths => [125, 125, 125, 125], :cell_style => { :font => "Helvetica", :size => 10, :border_color => "f3f3f3" }
+
+@order.menor_ex.times do |time|
+	data = [ 
+ ["", "", "", ""]
+ ]
+pdf.table data, :position => :center, :width => 500, :row_colors => ["FFFFFF", "ffffff"], :column_widths => [125, 125, 125, 125], :cell_style => { :font => "Helvetica", :size => 10, :border_color => "f3f3f3", :height => 15 }
+end
+
+
+	end
 
 end
