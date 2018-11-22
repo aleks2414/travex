@@ -26,6 +26,7 @@
 				</thead>
 				<tbody>
 					<% @orders.each do |order| %>
+					<% if order.stripe_token.present? %>
 					<tr>
 						<td><%= order.id%></td>
 						<td><%= order.block.id%></td>
@@ -42,6 +43,7 @@
             <td><%= link_to 'Editar', edit_block_order_path(order.block, order) %></td>
             <td><%= link_to 'Eliminar', block_order_path(order.block, order), method: :delete, data: { confirm: 'Are you sure?' } %></td>
 					</tr>
+					<% end %>
 					<% end %>
 					<tr>
 						<td></td>

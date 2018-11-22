@@ -2,6 +2,8 @@
 	<div class="row">
 		<div class="col-md-6 col-md-offset-3">
 			<div id="contact2">
+
+				<% if @order.stripe_token.present?%>
 				<h2><%=@order.nombre%></h2>
 				<p class="center"><%=@order.email%></p>
 				<h2>Gracias por Reservar <br>	"<%= @order.block.experience.nombre %>" </h2>
@@ -164,6 +166,13 @@
 				<button class="button button_blue button_center">Descargar Información</button>
 				<% end %>
 				<p class="center">Stripe token: <%= @order.stripe_token %></p>
+	
+		<% else %>
+				<h2>Lo sentimos, tu pedido no pudo ser completado</h2>
+				<p class="center">Vuelve a intentarlo, ningún cobro se ha realizado.</p>
+				<p class="center">Muchas gracias</p> <br><br>
+				<%= link_to "Regresar al inicio", root_path, class: "button button_blue button_center" %>
+			<% end %>
 			</div>
 		</div>
 	</div>
